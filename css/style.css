@@ -78,6 +78,13 @@ input[type=submit] {
     color: #fff;
     border-radius: 5px;
 }
+.login-check-wrap {
+    margin: 10px 0;
+}
+input[type=checkbox] {
+    border: none;
+    padding: 10px;
+}
 /**************
 フッター
 ***************/
@@ -106,4 +113,12 @@ login.html
     padding: 15px;
     color: #fff;
     border-radius: 5px;
+}
+.forgot-a {
+    margin: 0 0 0 20px;
+    color: #0075c2;
+}
+.forgot-a:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
