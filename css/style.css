@@ -87,6 +87,15 @@ input[type="text"] {
     font-size: 16px;
     margin: 0 0 20px 0;
 }
+input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #f4f4f4;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 0 0 20px 0;
+}
 input[type="submit"] {
     width: 100%;
     background-color: #ed6d46;

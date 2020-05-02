@@ -1,13 +1,14 @@
 $(function(){
-    
-    // 新規登録フォームバリデーションチェック
-    const inputChkMSG = "を入力してください";
 
-    // フォームに入力があるかチェック
+    // 新規登録フォームバリデーションチェック
+
     $('.js-mail-check').on('blur',function(){
-        if($(this).val().length < 1){
+        if($(this).val().trim().length < 1){
             $(this).addClass("input-error");
             $('.mail-error-msgArea').show().text('メールアドレスを入力してください。');
+        }else if(!$(this).val().match(/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/)){
+            $(this).addClass("input-error");
+            $('.mail-error-msgArea').show().text('メールアドレスの形式で入力してください。');
         }else{
             $(this).removeClass("input-error");
             $('.mail-error-msgArea').hide();
@@ -17,6 +18,9 @@ $(function(){
         if($(this).val().length < 1){
             $(this).addClass("input-error");
             $('.name-error-msgArea').show().text('ニックネームを入力してください。');
+        }else if($(this).val().length > 255){
+            $(this).addClass("input-error");
+            $('.name-error-msgArea').show().text('255文字以内で入力してください');
         }else{
             $(this).removeClass("input-error");
             $('.name-error-msgArea').hide();
@@ -26,21 +30,31 @@ $(function(){
         if($(this).val().length < 1){
             $(this).addClass("input-error");
             $('.pass-error-msgArea').show().text('パスワードを入力してください。');
+        }else if($(this).val().length < 7 || $(this).val().length > 255){
+            $(this).addClass("input-error");
+            $('.pass-error-msgArea').show().text('8文字以上128文字以内で入力してください');
+        }else if(!$(this).val().match(/^[a-zA-Z]+[0-9]+$/)){
+            $(this).addClass("input-error");
+            $('.pass-error-msgArea').show().text('英字と数字を両方含むパスワードを設定してください。');
         }else{
             $(this).removeClass("input-error");
             $('.pass-error-msgArea').hide();
         }
     });
     $('.js-repass-check').on('blur',function(){
+        console.log($('.js-pass-check').val());
         if($(this).val().length < 1){
             $(this).addClass("input-error");
             $('.repass-error-msgArea').show().text('確認のためパスワードを再入力してください。');
+        }else if($(this).val() !== $('.js-pass-check').val()){
+            $(this).addClass("input-error");
+            $('.repass-error-msgArea').show().text('パスワードが一致しません。');
         }else{
             $(this).removeClass("input-error");
             $('.repass-error-msgArea').hide();
         }
     });
-    
+
     // フッターがコンテンツが少ない場合でも画面最下部に表示されるようにする
     $footer = $('#footer');
     if(window.innerHeight > $footer.offset().top + $footer.outerHeight()){
