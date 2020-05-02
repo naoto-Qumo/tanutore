@@ -1,6 +1,12 @@
 body {
     color: #444444;
     font-family: 'M PLUS Rounded 1c', sans-serif;
+    background-image: url(../img/top-backimg.png);
+    background-size: cover;
+}
+#signupBackImg {
+    /*バリデーションメッセージをが表示されることで背景サイズが変わるため*/
+    background-size: contain;
 }
 a {
     text-decoration: none;
@@ -18,6 +24,8 @@ a:hover {
     border-bottom: 1px solid #eeeeee;
     padding: 0 10px;
     box-sizing: border-box;
+    background-image: url(../img/header-img.png);
+    background-size: contain;
 }
 #top-content {
     width: 300px;
@@ -81,7 +89,7 @@ input[type="text"] {
 }
 input[type="submit"] {
     width: 100%;
-    background-color: #00a960;
+    background-color: #ed6d46;
     font-size: 16px;
     padding: 15px;
     margin: 15px 0 0 0;
@@ -94,10 +102,6 @@ input[type="submit"]:hover {
 .login-check-wrap {
     margin: 10px 0;
 }
-input[type="checkbox"] {
-    border: none;
-    padding: 10px;
-}
 .check-label:hover {
     cursor: pointer;
 }
@@ -106,6 +110,15 @@ input[type="text"].form-passSend {
 }
 .form-Area p{
     color: #999999;
+}
+input[type="text"].input-error {
+    border: 1px solid #e4007f;
+}
+.errorMsgArea {
+    font-size: 14px;
+    margin: -15px 0 20px 0;
+    color: #e4007f;
+    display: none;
 }
 /**************
 フッター
