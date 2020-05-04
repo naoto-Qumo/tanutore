@@ -153,6 +153,8 @@ body.selModalBody{
 	cursor: pointer;
 	text-align: left;
     margin: 0 0 15px 0;
+    height: 50px;
+    font-size: 12px;
 }
 
 .selModalButton::before, .selModalButton::after{
