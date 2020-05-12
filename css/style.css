@@ -215,3 +215,321 @@ transactionReg.html
     color: #444;
     border: 1px solid #e7e7e7;
 }
+/********************
+itemRegDetail.html
+*********************/
+.backbtn-Area {
+    margin: 15px;
+    font-size: 18px;
+    padding: 5px;
+    background-color: rgba(250, 250, 250, 0.5);
+    border: none;
+    border-radius: 3px;
+}
+.backbtn-Area a::before {
+    font-family:"FontAwesome";
+    content:"\f0d9";
+    margin-right: 10px;
+}
+.user-Area {
+    width: 100%;
+    padding: 15px;
+    overflow: hidden;
+}
+.user__icon {
+    width: 30%;
+    float: left;
+}
+.user__icon img {
+    width: 100%;
+    border-radius: 50%;
+}
+.user__info {
+    width: 70%;
+    float: left;
+    text-align: center;
+}
+.user__name {
+    font-size: 24px;
+    border-bottom: 1px solid #444;
+    width: 80%;
+    margin: 0 auto;
+    padding: 5px 10px 3px 10px;
+}
+.user__name a {
+    color: #444;
+}
+.user__eval {
+    margin: 20px 0 0 0;
+}
+/*********************
+星評価
+**********************/
+.rate {
+    position: relative;
+    display: inline-block;
+    width: 160px;
+    height: 32px;
+    font-size: 32px;
+}
+.rate:before, .rate:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '★★★★★';
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+}
+.rate:before {    
+    color: #ddd;
+}
+.rate:after {
+    color: #ffa500;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.rate0:after {
+    width: 0;
+}
+.rate1:after {
+    width: 32px;
+} 
+.rate1-5:after {
+    width: 48px;
+} 
+.rate2:after {
+    width: 64px;
+} 
+.rate2-5:after {
+    width: 80px;
+} 
+.rate3:after {
+    width: 96px;
+}
+.rate3-5:after {
+  width: 112px;
+}
+.rate4:after {
+    width: 128px;
+}
+.rate4-5:after {
+    width: 144px;
+}
+.rate5:after {
+    width: 160px;
+}
+.star__wrap {
+    width: 160px;
+    margin: 0 auto;
+}
+.item-Area {
+    width: 100%;
+    padding: 15px;
+    overflow: hidden;
+}
+.reg__Item__Detail {
+    width: 40%;
+    float: left;
+    box-sizing: border-box;
+}
+.reg__Item__Detail{
+    margin: 0 5%;
+}
+.ItemImg {
+    width: 100%;
+}
+.ItemImg img {
+    width: 100%;
+}
+.detailComment { 
+    padding: 15px;
+}
+.commentArea {
+    padding: 10px;
+    width: 100%;
+    background-color: #f4f4f4;
+    min-height: 150px;
+    margin: 0 0 20px 0;
+}
+.negobtn {
+    width: 100%;
+    background-color: #ed6d46;
+    font-size: 16px;
+    padding: 15px;
+    margin: 15px 0 0 0;
+    border-radius: 5px;
+}
+.negobtn a {
+    color: #fff;
+}
+.btnArea {
+    padding: 15px;
+}
+/**********
+msg.html
+***********/
+.top__btn__Area {
+    width: 95%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.top__btn__Area .backbtn-Area {
+    margin: 15px 0;
+}
+.trancomp-btn {
+    background-color: #ed6d46;
+    margin: 15px 0;
+    font-size: 18px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    color:#fff;
+}
+.btn-right {
+    float: right;
+}
+.tranInfo__Area {
+    width: 95%;
+    margin: 0 auto;
+    padding: 15px 0;
+    overflow: hidden;
+    background-color: rgba(255, 255, 249, 0.4);
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+.userIcon {
+    width: 50%;
+    margin: 0 auto;
+}
+.userName {
+    text-align: center;
+}
+.userIcon img {
+    width: 100%;
+    border-radius: 50%;
+}
+.userInfo {
+    float: left;
+    width: 40%;
+
+}
+.tranInfo {
+    float: left;
+    width: 50%;
+    padding: 2% 0;
+}
+.itemInfo {
+    margin: 0 0 10px 0;
+    font-size: 12px;
+}
+.itemInfo:last-child {
+    margin: 0;
+}
+.itemName {
+    padding-left: 1em;
+}
+.msg__Area {
+    background-color: #fffff9;
+    height: 400px;
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 15px;
+    overflow-y: scroll;
+}
+.msg__contents {
+    width: 80%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+    box-sizing: border-box;
+}
+.msgUser {
+    width: 20%;
+    border-radius: 50%;
+    border: 1px solid #e6eae6;
+    overflow: hidden;
+}
+.msg__contents.msg-left .msgUser {
+    float: left;
+}
+.msg__contents.msg-right {
+    float: right;
+}
+.msg__contents.msg-right .msgUser {
+    float: right;
+}
+
+.msgUser img {
+    width: 100%;
+}
+.msg__text {
+    float: left;
+    width: 75%;
+}
+.msg__contents.msg-left .msg__text {
+    margin: 3% 0 0 5%;
+    padding: 5px;
+    background-color: #e5c1cd;
+    border-radius: 3px;
+    position: relative;
+}
+.msg__contents.msg-right .msg__text {
+    float: right;
+    margin: 0 5% 0 0;
+    padding: 5px;
+    background-color: #b2cbe4;
+    border-radius: 3px;
+    position: relative;
+}
+.msg__contents.msg-left .msg__text > .triangle {
+    position: absolute;
+    left: -20px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-right: 15px solid #e5c1cd;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+.msg__contents.msg-right .msg__text > .triangle {
+    position: absolute;
+    right: -20px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-left: 15px solid #b2cbe4;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+.msgSend__Area {
+    width: 95%;
+    margin: 0 auto;
+    border: none;
+    background-color: #fffff9;
+    overflow: hidden;
+    position: relative;
+}
+.msgSend__Area textarea {
+    background-color: #d4d9dc;
+    border-radius: 10px;
+    border: none;
+    width: 80%;
+    height: 50px;
+    float: left;
+    padding: 15px;
+    font-size: 14px;
+    overflow: hidden;
+    resize: horizontal;
+}
+.msgSend__Area input[type="submit"] {
+    width: 20%;
+    margin: 0;
+    height: 50px;
+    padding: 15px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
