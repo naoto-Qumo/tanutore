@@ -5,6 +5,7 @@
             <title>たぬトレ</title>
             <link rel="stylesheet" href="css/reset.css">
             <link rel="stylesheet" href="css/style.css">
+            <link rel="stylesheet" href="css/itemList.css">
             <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
             <script src="https://kit.fontawesome.com/d5e07a31ed.js" crossorigin="anonymous"></script>
         </head>
@@ -27,7 +28,7 @@
                     <button class="backbtn-Area btn-left">
                         <a href="">一覧に戻る</a>
                     </button>
-                    <button class="trancomp-btn btn-right">
+                    <button class="trancomp-btn btn-right js-show-evalmodal">
                         取引完了
                     </button>
                 </div>
@@ -42,13 +43,13 @@
                     </div>
                     <div class="tranInfo">
                         <div class="itemInfo">
-                            出品アイテム
+                            <span class="tranItem-color">出品アイテム</span>
                             <div class="itemName">
                                 アンティークなテーブル
                             </div>
                        </div>
                         <div class="itemInfo">
-                            欲しいアイテム
+                            <span class="wantItem-color">欲しいアイテム</span>
                             <div class="itemName">
                                 ファンキーなサングラス
                             </div>
@@ -60,44 +61,81 @@
                         <div class="msgUser">
                             <img src="img/tanutoreIcon.png" alt="">
                         </div>
-                        <p class="msg__text">
-                            <span class="triangle"></span>
-                            こんにちは！
-                        </p>
+                        <div class="msg__wrap">
+                            <p class="msg__text">
+                                <span class="triangle"></span>
+                                <span class="hukidashi">こ！</span>
+                            </p>
+                            <div class="send__time">2020/05/14 23:59:59</div>
+                        </div>
                     </div>
                     <div class="msg__contents msg-right">
-                        <p class="msg__text">
-                            <span class="triangle"></span>
-                            こんにちは！ こんにちは！ こんにちは！ こんにちは！
-                            こんにちは！ こんにちは！ こんにちは！
-                            こんにちは！ こんにちは！ こんにちは！
-                        </p>
+                            <p class="msg__text">
+                                <span class="triangle"></span>
+                                <span class="hukidashi">こんにちは！</span>
+                            </p>
+                            <div class="send__time">2020/05/14 23:59:59</div>
                     </div>
                     <div class="msg__contents msg-right">
-                        <p class="msg__text">
-                            <span class="triangle"></span>
-                            交換してください！
-                        </p>
+                            <p class="msg__text">
+                                <span class="triangle"></span>
+                                <span class="hukidashi">交換してください！交換してください！交換してください！交換してください！交換してください！交換してください！交換してください！交換してください！</span>
+                            </p>
+                            <div class="send__time">2020/05/14 23:59:59</div>
                     </div>
                     <div class="msg__contents msg-left">
                         <div class="msgUser">
                             <img src="img/tanutoreIcon.png" alt="">
                         </div>
-                        <p class="msg__text">
-                            <span class="triangle"></span>
-                            島パスワードは「6Y4LB」です
-                        </p>
+                        <div class="msg__wrap">
+                            <p class="msg__text">
+                                <span class="triangle"></span>
+                                <span class="hukidashi">島パスワードは「6Y4LB」です島パスワードは「6Y4LB」です島パスワードは「6Y4LB」です島パスワードは「6Y4LB」です島パスワードは「6Y4LB」です</span>
+                            </p>
+                            <div class="send__time">2020/05/14 23:59:59</div>
+                        </div>
                     </div>
                     <div class="msg__contents msg-right">
-                        <p class="msg__text">
-                            <span class="triangle"></span>
-                            今からいきます！
-                        </p>
+                        <div class="msg__wrap">
+                            <p class="msg__text">
+                                <span class="triangle"></span>
+                                <span class="hukidashi">今からいきます！</span>
+                            </p>
+                            <div class="send__time">2020/05/14 23:59:59</div>
+                        </div>
                     </div>
                 </div>
                 <div class="msgSend__Area">
                     <textarea name="" id="" placeholder="メッセージを入力" cols="30" rows="10"></textarea>
                     <input type="submit" value="送信">
+                </div>
+                <div class="modal__cover js-cover-modal"></div>
+                <div class="eval__modal js-evalmodal">
+                    <div class="eval__modal__wrap">
+                        <div class="modalTitle"><h2>取引相手はどうでしたか？</h2></div>
+                        <div class="evalSel">
+                            <form class="eval-form__Area" action="">
+                                <div class="evalbtn__wrap">
+                                        <label for="eval0">
+                                            <input type="radio" class="evalbtn" id="eval0" name="evalVal" value="0">
+                                            <img class="radio-img" src="img/eval0.png" alt="">
+                                            <p>悪かった</p>
+                                        </label>
+                                        <label for="eval3">
+                                            <input type="radio" class="evalbtn" id="eval3" name="evalVal" value="3">
+                                            <img class="radio-img" src="img/eval3.png" alt="">
+                                            <p>普通</p>
+                                        </label>
+                                        <label for="eval5">
+                                            <input type="radio" class="evalbtn" id="eval5" name="evalVal" value="5">
+                                            <img class="radio-img" src="img/eval5.png" alt="">
+                                            <p>良かった</p>
+                                        </label>
+                                </div>
+                                <input class="tranCompBtn" type="submit" value="取引完了">
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </main>
             <footer id="footer">
@@ -110,5 +148,6 @@
     integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
     crossorigin="anonymous"></script>
     <script src="js/app.js"></script>
+    <script src="js/itemMenu.js"></script>
         </body>
     </html>

@@ -55,6 +55,14 @@ $(function(){
         }
     });
     
+    //評価モーダル
+    var currentScrollY;
+    $('.js-show-evalmodal').on('click',function(){
+        currentScrollY = $(window).scrollTop();
+        $('html, body').css('overflow', 'hidden');
+        $('.js-cover-modal').show();
+        $('.js-evalmodal').show();
+    });
     // フッターがコンテンツが少ない場合でも画面最下部に表示されるようにする
     $footer = $('#footer');
     if(window.innerHeight > $footer.offset().top + $footer.outerHeight()){

@@ -1,8 +1,12 @@
+html {
+    height: 100%;
+}
 body {
     color: #444444;
     font-family: 'M PLUS Rounded 1c', sans-serif;
     background-image: url(../img/top-backimg2.png);
     background-size: cover;
+    height: 100%;
 }
 #signupBackImg {
     /*バリデーションメッセージをが表示されることで背景サイズが変わるため*/
@@ -397,6 +401,9 @@ msg.html
     background-color: rgba(255, 255, 249, 0.4);
     border-radius: 3px;
     margin-bottom: 10px;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
 }
 .userIcon {
     width: 50%;
@@ -412,9 +419,11 @@ msg.html
 .userInfo {
     float: left;
     width: 40%;
-
 }
 .tranInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     float: left;
     width: 50%;
     padding: 2% 0;
@@ -423,11 +432,19 @@ msg.html
     margin: 0 0 10px 0;
     font-size: 12px;
 }
+.tranItem-color {
+    padding: 3px;
+    background-color: #e5c1cd;
+}
+.wantItem-color {
+    padding: 3px;
+    background-color: #b2cbe4;
+}
 .itemInfo:last-child {
     margin: 0;
 }
 .itemName {
-    padding-left: 1em;
+    padding: 5px 0 10px 0;
 }
 .msg__Area {
     background-color: #fffff9;
@@ -438,6 +455,7 @@ msg.html
     overflow: hidden;
     padding: 15px;
     overflow-y: scroll;
+    box-sizing: border-box;
 }
 .msg__contents {
     width: 80%;
@@ -461,31 +479,45 @@ msg.html
 .msg__contents.msg-right .msgUser {
     float: right;
 }
-
 .msgUser img {
     width: 100%;
 }
-.msg__text {
-    float: left;
-    width: 75%;
-}
 .msg__contents.msg-left .msg__text {
-    margin: 3% 0 0 5%;
+    float: left;
+    margin: 5% 0 0 5%;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+.msg__contents.msg-left .msg__text .hukidashi {
     padding: 5px;
+    display: inline-block;
     background-color: #e5c1cd;
     border-radius: 3px;
-    position: relative;
+    box-sizing: border-box;
 }
 .msg__contents.msg-right .msg__text {
     float: right;
-    margin: 0 5% 0 0;
+    margin: 0 0 0 0;
+    padding-right: 15px;
+    display: block;
+    width: 100%;
+    text-align: right;
+    box-sizing: border-box;
+    position: relative;
+}
+.msg__contents.msg-right .msg__text .hukidashi {
     padding: 5px;
+    display: inline-block;
     background-color: #b2cbe4;
     border-radius: 3px;
-    position: relative;
+    box-sizing: border-box;
+    text-align: left;
 }
 .msg__contents.msg-left .msg__text > .triangle {
     position: absolute;
+    top: 7px;
     left: -20px;
     width: 0;
     height: 0;
@@ -496,7 +528,8 @@ msg.html
 }
 .msg__contents.msg-right .msg__text > .triangle {
     position: absolute;
-    right: -20px;
+    top: 7px;
+    right: -5px;
     width: 0;
     height: 0;
     border-top: 10px solid transparent;
@@ -504,11 +537,34 @@ msg.html
     border-right: 10px solid transparent;
     border-bottom: 10px solid transparent;
 }
+.msg__contents.msg-left .send__time {
+    float: left;
+    font-size: 8px;
+    margin: 0 0 0 5%;
+}
+.msg__contents.msg-right .send__time {
+    float: right;
+    font-size: 8px;
+    margin: 0 15px 0 0;
+    text-align: right;
+}
+.msg__contents.msg-left .msg__wrap {
+    float: left;
+    width: 75%;
+
+    
+    box-sizing: border-box;
+}
+.msg__contents.msg-rignt .msg__wrap {
+    float: right;
+    width: 80%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
 .msgSend__Area {
     width: 95%;
     margin: 0 auto;
     border: none;
-    background-color: #fffff9;
     overflow: hidden;
     position: relative;
 }
@@ -532,4 +588,57 @@ msg.html
     position: absolute;
     right: 0;
     bottom: 0;
+}
+/*ユーザ評価モーダル*/
+.eval__modal {
+    width: 100%;
+    position: absolute;
+    top: 30%;
+    display: none;
+}
+.eval__modal__wrap {
+    width: 95%;
+    margin: 0 auto;
+    background-color: #eee9e6;
+    padding: 5px;
+    border-radius: 3px;
+    position: relative;
+}
+.modalTitle {
+    text-align: center;
+}
+.evalSel {
+    width: 100%;
+}
+.eval-form__Area {
+    padding: 5px;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.evalbtn__wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 15px;
+    text-align: center;
+}
+.evalbtn {
+    display: none;
+}
+.evalbtn__wrap img {
+    padding: 10px 10px 0 10px;
+    width: 100%;
+    opacity: 0.3;
+}
+.evalbtn:checked + .radio-img {
+    opacity: 1;
+}
+.evalbtn__wrap p {
+    margin: 0;
+}
+.evalSel .tranCompBtn {
+    display: block;
+    width: 95%;
+    margin: 40px auto 15px auto;
 }
