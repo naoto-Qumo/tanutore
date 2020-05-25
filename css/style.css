@@ -108,6 +108,7 @@ input[type="submit"] {
     margin: 15px 0 0 0;
     color: #fff;
     border-radius: 5px;
+    border: none;
 }
 input[type="submit"]:hover {
     cursor: pointer;
@@ -131,7 +132,6 @@ input[type="text"].input-error {
     font-size: 14px;
     margin: -15px 0 20px 0;
     color: #e4007f;
-    display: none;
 }
 select {
     background-color: #f4f4f4;
@@ -156,7 +156,7 @@ login.html
 =========================================*/
 .login-no-account {
     text-align: center;
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
     border-bottom: 1px solid #eeeeee;
 }
 .login-no-account a {
