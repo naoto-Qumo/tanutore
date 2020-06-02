@@ -51,7 +51,7 @@
                         $sql = 'INSERT INTO users (mail, pass, nickname, login_time) VALUES (:email, :pass, :name, :login_time)';
                         $data = array(':email'=>$email, ':pass'=>password_hash($pass, PASSWORD_DEFAULT),
                                         ':name'=>$name, 'login_time'=>date('Y-m-d H:i:s'));
-                        error_log(date('Y-m-d H:i:s'));
+               
                         // クエリ実行
                         $stmt = queryPost($dbh, $sql, $data);
                         // クエリ成功の場合
@@ -62,10 +62,10 @@
                             $_SESSION['login_date'] = time();
                             $_SESSION['login_limit'] = $sesLimit;
                             // ユーザIDを格納
-                            $_SESSION['user_id'] = $dbh->lastInsertId();
+                            $_SESSION['u_id'] = $dbh->lastInsertId();
                             debug('セッション変数の中身：'.print_r($_SESSION,true));
 
-                            header('Location:login.html');
+                            header('Location:itemlist.php');
                         }
                     } catch (Exception $e) {
                         error_log('エラー発生：'.$e->getMessage());

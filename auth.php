@@ -2,7 +2,7 @@
 if(!empty($_SESSION)){
     debug('ログイン済ユーザです。');
     // セッション情報がログイン有効期限内か判定
-    if(( $_SESSION['limit_time']+$_SESSION['login_date']) < time()){
+    if(( $_SESSION['login_limit']+$_SESSION['login_date']) < time()){
         debug('ログイン有効期限オーバーです。');
         // セッションを破棄
         session_destroy();
@@ -12,8 +12,12 @@ if(!empty($_SESSION)){
         debug('ログイン有効期限内です。');
         // 最終ログイン日時を現在日時に更新
         $_SESSION['login_date'] = time();
-        // 一覧画面に遷移
-        header('Location:msg.html');
+
+        if(basename($_SERVER['PHP_SELF']) === 'login.php') {
+            // 一覧画面に遷移
+            header('Location:itemlist.php');
+        }
+        
     }
 } else {
     debug('未ログインユーザです。');

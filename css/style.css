@@ -12,6 +12,9 @@ body {
     /*バリデーションメッセージをが表示されることで背景サイズが変わるため*/
     background-size: contain;
 }
+a.list {
+    color: #444;
+}
 a {
     text-decoration: none;
     color: #0075c2;
@@ -218,6 +221,7 @@ transactionReg.html
     font-size: 14px;
     color: #444;
     border: 1px solid #e7e7e7;
+    border-radius: 3px;
 }
 /********************
 itemRegDetail.html
@@ -254,11 +258,11 @@ itemRegDetail.html
     text-align: center;
 }
 .user__name {
+    text-align: center;
     font-size: 24px;
     border-bottom: 1px solid #444;
     width: 80%;
     margin: 0 auto;
-    padding: 5px 10px 3px 10px;
 }
 .user__name a {
     color: #444;
@@ -355,6 +359,7 @@ itemRegDetail.html
     background-color: #f4f4f4;
     min-height: 150px;
     margin: 0 0 20px 0;
+    border-radius: 3px;
 }
 .negobtn {
     width: 100%;
@@ -363,12 +368,26 @@ itemRegDetail.html
     padding: 15px;
     margin: 15px 0 0 0;
     border-radius: 5px;
-}
-.negobtn a {
+    border: none;
     color: #fff;
+    display: inline-block;
+    text-align: center;
+}
+.negobtn:hover {
+    cursor: pointer;
+}
+.negobtn.delTran {
+    background-color: #0068b7;
 }
 .btnArea {
     padding: 15px;
+}
+.editMenu {
+    display: flex;
+    justify-content: space-between;
+}
+.editMenu .negobtn {
+    width: 45%;
 }
 /**********
 msg.html
@@ -607,6 +626,9 @@ msg.html
 .modalTitle {
     text-align: center;
 }
+.modalTitle .modalSubTitle {
+    margin: 0;
+}
 .evalSel {
     width: 100%;
 }
@@ -641,4 +663,174 @@ msg.html
     display: block;
     width: 95%;
     margin: 40px auto 15px auto;
+}
+
+/*=======================================
+itemlist.html
+=========================================*/
+.listpage-title {
+    margin: 10px 0;
+    text-align: center;
+}
+.listpage-title h1 {
+	display: inline;
+	margin-left: 75px;
+}
+.listpage-title .home{
+	float: right;
+	margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: #52D3FF;
+}
+.itemmain {
+    background-color: rgba(255, 255, 249, 0.4);
+    height: 400px;
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 15px;
+    overflow-y: scroll;
+    box-sizing: border-box;
+}
+.itemmain .sub {
+	margin: 10px 0 0 8px;
+    float: left;
+    display: inline-block;  
+    font-size: 12px;
+}
+.itemmain .sub .listimg {
+    width: 80px;
+    height: 80px;
+    background-color: #52D3FF;
+}
+.itemmain .sub .title {
+	font-size: 10px;
+    font-weight: bold;
+}
+.botan {
+	width: 100%;
+	display: inline-block;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.botan .touroku {
+    background-color: #0068b7;
+	padding: 10px 10% 10px 10%;
+    color: #fff;
+    border-radius: 5px;
+}
+.botan .serch {
+    background-color: #0068b7;
+    padding: 10px 10% 10px 10%;
+    color: #fff;
+    border-radius: 5px;
+}
+/*=======================================
+mypage.html
+=========================================*/
+.myComment { 
+    padding: 15px;
+}
+.mycommentArea {
+    padding: 10px;
+    width: 100%;
+    background-color: rgba(255, 255, 249, 0.4);
+    min-height: 70px;
+    margin: 0 0 20px 0;
+}
+.itemArea {
+    width: 100%;
+    background-color: #f4f4f4;
+    min-height: 200px;
+    margin: 0 0 20px 0;
+    overflow-y: scroll;
+}
+.itemArea p {
+	display: inline-block;
+	padding-left: 10px;
+}
+.itemArea .status {
+	display: inline-block;
+	padding-right: 10px;
+	float: right;
+	color: #0068b7;
+}
+.itemArea .complete {
+	display: inline-block;
+	padding-right: 10px;
+	float: right;
+	color: #FF0000;
+}
+.itemArea .completedate{
+	display: block;
+	padding-right: 10px;
+	float: right;
+	color: #FF0000;
+}
+.edit{
+	float: right;
+    margin: 15px 0;
+    font-size: 18px;
+    border: none;
+    color:#fff;
+}
+.archive{
+	float: right;
+    padding: 5px 15px;
+	display: inline-block;
+}
+.status>a {
+    text-decoration: underline;
+}
+
+/*=======================================
+editmypage.html
+=========================================*/
+input[type="submit"].editcomplete{
+	float: right;
+    margin: 15px 0;
+    font-size: 18px;
+    padding: 5px 15px;
+    border: none;
+    color: #FF0000;
+    background-color: transparent;
+    width: auto;
+}
+.user__name.edit {
+    text-align: left;
+    border: none;
+    margin: 0;
+    font-size: 16px;
+    color: #444;
+}
+.editImg img {
+    filter: brightness(70%);
+}
+.myComment textarea {
+    width: 100%;
+    height: 100px;
+    background-color: #f4f4f4;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    color: #444;
+    border: 1px solid #e7e7e7;
+}
+#selIcon { 
+    display: none;
+}
+.editImg {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fa-camera {
+    position: absolute;
+    color: #fff;
+    z-index: 2;
+    opacity: 0.7;
 }

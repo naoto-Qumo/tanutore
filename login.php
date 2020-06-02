@@ -23,8 +23,7 @@ if(!empty($_POST)){
 
     // メールアドレス形式チェック
     validEmail($email, 'email');
-    //メールアドレス重複チェック
-    validEmailDup($email);
+
     // メールアドレス最大文字数チェック
     validMaxLen($email,'email');
     
@@ -71,7 +70,7 @@ if(!empty($_POST)){
                 // ユーザID取得
                 $_SESSION['u_id'] = $result['user_id'];
                 debug('セッション変数の中身'.print_r($_SESSION,true));
-                header('Location:msg.html');
+                header('Location:itemlist.php');
             } else {
                 debug('パスワードが不一致です。');
                 $err_msg['common'] = MSG09;
@@ -119,7 +118,7 @@ debug('画面表示処理完了>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.');
         </div>
         <div class="login-no-account">
             <p>アカウントをお持ちでない方はこちら</p>
-            <a href="signup.html">新規会員登録</a>
+            <a href="signup.php">新規会員登録</a>
         </div>
         <form class="form-Area" action="" method="POST">
             <div class="mail-error-msgArea errorMsgArea">
@@ -132,8 +131,8 @@ debug('画面表示処理完了>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.');
             <input type="password" placeholder="パスワード" name="pass" value="<?php if(!empty($pass)){ echo $pass;} ?>">
             <div class="mail-error-msgArea errorMsgArea"><?php if(!empty($err_msg['pass'])){ echo $err_msg['pass'];} ?></div>
             <div class="login-check-wrap">
-                <input type="checkbox" id="login-checkbox">
-                <label for="login-checkbox" class="check-label" name="pass_save">次回から自動でログインする</label>
+                <input type="checkbox" id="login-checkbox" name="pass_save">
+                <label for="login-checkbox" class="check-label">次回から自動でログインする</label>
             </div>
             <input type="submit" value="ログインする">
             <a href="passResetSend.html" class="forgot">パスワードを忘れた方はこちら</a>

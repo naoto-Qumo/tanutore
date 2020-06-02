@@ -2,6 +2,12 @@
 選択をモーダルで表示したリストで行うため、
 セレクトボックス自体は隠しておいて値だけjQueryで書き換える
 */
+body.fixed {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+}
 .itemSelect {
 	display: none;
 }
