@@ -108,7 +108,6 @@ input[type="submit"] {
     margin: 15px 0 0 0;
     color: #fff;
     border-radius: 5px;
-    border: none;
 }
 input[type="submit"]:hover {
     cursor: pointer;
@@ -132,6 +131,7 @@ input[type="text"].input-error {
     font-size: 14px;
     margin: -15px 0 20px 0;
     color: #e4007f;
+    display: none;
 }
 select {
     background-color: #f4f4f4;
@@ -156,7 +156,7 @@ login.html
 =========================================*/
 .login-no-account {
     text-align: center;
-    padding: 0px 20px 20px 20px;
+    padding: 20px;
     border-bottom: 1px solid #eeeeee;
 }
 .login-no-account a {
@@ -444,7 +444,7 @@ msg.html
     margin: 0;
 }
 .itemName {
-    padding: 5px 0 0 0;
+    padding: 5px 0 10px 0;
 }
 .msg__Area {
     background-color: #fffff9;
@@ -722,7 +722,8 @@ mypage.html
 .itemArea {
     width: 100%;
     background-color: #f4f4f4;
-    min-height: 200px;
+    min-heigh
+	t: 200px;
     margin: 0 0 20px 0;
     overflow-y: scroll;
 }
@@ -783,4 +784,27 @@ editmypage.html
     font-size: 14px;
     color: #444;
     border: 1px solid #e7e7e7;
+}
+
+/*=======================================
+archivepage.html
+=========================================*/
+
+
+.archiveArea{
+	width: 95%;
+    background-color: #f4f4f4;
+    min-height: 500px;
+    margin: 0 auto;
+    overflow-y: scroll;
+}
+.archiveArea p {
+	display: inline-block;
+	padding-left: 10px;
+}
+.archiveArea .status {
+	display: inline-block;
+	padding-right: 10px;
+	float: right;
+	color: #0068b7;
 }
