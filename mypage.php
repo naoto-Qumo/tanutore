@@ -107,16 +107,14 @@ debug('buyer' . print_r($msgInfo['buyer'], true));
             <div class="regItemTitle">出品家具一覧</div>
             <div class="itemArea">
                 <?php if (count($u_syuppin) !== 0) { ?>
-                    <?php if (count($u_syuppin) !== 0) { ?>
                         <?php foreach ($u_syuppin as $key => $syuppin) { ?>
                             <p class="itemname"><?php echo $syuppin['ex_item_name']; ?></p>
                             <p class="status">
-                                <a href="itemRegDetail.php<?php echo '?s_id=' . $syuppin['syuppin_id']; ?>">確認する</a>
+                                <a href="itemRegDetail.php<?php echo '?s_id=' . $syuppin['syuppin_id']; ?>">編集する</a>
                             </p>
                         <?php } ?>
-                    <?php } else { ?>
-                        <p class="itemname">出品中のアイテムはありません。</p>
-                    <?php } ?>
+                <?php } else { ?>
+                    <p class="itemname">出品中のアイテムはありません。</p>
                 <?php } ?>
             </div>
 
@@ -124,10 +122,14 @@ debug('buyer' . print_r($msgInfo['buyer'], true));
             <div class="itemArea">
                 <?php if ($livechat['seller']['count(chat_id)'] != 0) { ?>
                     <?php foreach ($user_chat['seller_chat'] as $key => $val) { ?>
-                        <?php if (empty($val['comptime']) && $val['delflg']==0) { ?>
+                        <?php if (empty($val['c_comptime']) && $val['delflg']==0) { ?>
                             <p class="itemname"><?php echo $val['ex_item_name']; ?></p>
                             <p class="status">
-                                <a href="msg.php<?php echo '?c_id=' . $val['chat_id']; ?>">取引中</a>
+                                <?php if(empty($val['s_comptime'])){?>
+                                    <a href="msg.php<?php echo '?c_id=' . $val['chat_id']; ?>">取引中</a>
+                                <?php }else{?>
+                                    <a href="msg.php<?php echo '?c_id=' . $val['chat_id']; ?>">評価待ち</a>
+                                <?php }?>
                             </p>
                         <?php } ?>
                     <?php } ?>
@@ -158,7 +160,7 @@ debug('buyer' . print_r($msgInfo['buyer'], true));
 
         </div>
         <div class="archive">
-            <a href="">過去取引一覧へ</a>
+            <a href="archivepage.php">過去取引一覧へ</a>
         </div>
     </main>
     <footer id="footer">

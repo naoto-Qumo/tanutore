@@ -26,8 +26,8 @@ if(!empty($_POST)){
         try{
             //DB接続
             $dbh = dbConnect();
-            $sql = 'UPDATE syuppin SET delFlg=:delFlg WHERE syuppin_id=:s_id AND user_id=:u_id';
-            $data = array(':delFlg'=>1, ':s_id'=>$s_id, ':u_id'=>$u_id);
+            $sql = 'UPDATE syuppin SET delFlg=:delFlg, del_time=:date WHERE syuppin_id=:s_id AND user_id=:u_id';
+            $data = array(':delFlg'=>1, ':s_id'=>$s_id, ':u_id'=>$u_id, ':date'=>date('Y-m-d H:i:s'));
             $stmt = queryPost($dbh, $sql, $data);
             if($stmt){
                 debug('削除成功');

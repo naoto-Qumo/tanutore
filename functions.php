@@ -345,7 +345,7 @@ function getChat($c_id){
     // DB接続
     $dbh = dbConnect();
     // SQL
-    $sql = 'SELECT chat_id, seller_id, buyer_id, s.syuppin_id AS s_id, seller_eval, buyer_eval, comptime, compflg FROM chat AS c
+    $sql = 'SELECT chat_id, seller_id, buyer_id, s.syuppin_id AS s_id, seller_eval, buyer_eval, c.comptime AS c_comptime, s.comptime AS s_comptime, compflg FROM chat AS c
             LEFT OUTER JOIN syuppin AS s ON c.syuppin_id=s.syuppin_id
             WHERE c.chat_id=:c_id';
     $data = array(':c_id'=>$c_id);
@@ -365,7 +365,7 @@ function getUserChat($u_id){
     // DB接続
     $dbh = dbConnect();
     // SQL
-    $sql = 'SELECT chat_id, seller_id, buyer_id, s.syuppin_id AS s_id, ex.item_name AS ex_item_name,ex.img AS ex_item_img ,s.want_item_id, want.item_name AS want_item_name, want.img AS want_item_img,s.comment,s.regtime, seller_eval, buyer_eval, comptime, compflg, delflg FROM chat AS c
+    $sql = 'SELECT chat_id, seller_id, buyer_id, s.syuppin_id AS s_id, ex.item_name AS ex_item_name,ex.img AS ex_item_img ,s.want_item_id, want.item_name AS want_item_name, want.img AS want_item_img,s.comment,s.regtime, seller_eval, buyer_eval, c.comptime AS c_comptime, s.comptime AS s_comptime, compflg, delflg FROM chat AS c
             LEFT OUTER JOIN syuppin AS s ON c.syuppin_id=s.syuppin_id
             LEFT OUTER JOIN item AS ex ON s.ex_item_id = ex.item_id
             LEFT OUTER JOIN item AS want ON s.want_item_id = want.item_id
@@ -373,7 +373,7 @@ function getUserChat($u_id){
     $data = array(':u_id'=>$u_id);
     $stmt = queryPost($dbh, $sql, $data);
 
-    $sql = 'SELECT chat_id, seller_id, buyer_id, s.syuppin_id AS s_id, ex.item_name AS ex_item_name,ex.img AS ex_item_img ,s.want_item_id, want.item_name AS want_item_name, want.img AS want_item_img,s.comment,s.regtime, seller_eval, buyer_eval, comptime, compflg, delflg FROM chat AS c
+    $sql = 'SELECT chat_id, seller_id, buyer_id, s.syuppin_id AS s_id, ex.item_name AS ex_item_name,ex.img AS ex_item_img ,s.want_item_id, want.item_name AS want_item_name, want.img AS want_item_img,s.comment,s.regtime, seller_eval, buyer_eval, c.comptime AS c_comptime, s.comptime AS s_comptime, compflg, delflg FROM chat AS c
             LEFT OUTER JOIN syuppin AS s ON c.syuppin_id=s.syuppin_id
             LEFT OUTER JOIN item AS ex ON s.ex_item_id = ex.item_id
             LEFT OUTER JOIN item AS want ON s.want_item_id = want.item_id
@@ -394,7 +394,7 @@ function getliveChat($u_id){
   $dbh = dbConnect();
   // SQL
   $sql = 'SELECT count(chat_id) FROM chat AS c
-          WHERE seller_id=:u_id AND compflg=0';
+          WHERE seller_id=:u_id AND compflg=0 AND comptime IS NULL';
   $data = array(':u_id'=>$u_id);
   $stmt = queryPost($dbh, $sql, $data);
 

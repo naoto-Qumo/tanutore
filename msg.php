@@ -144,9 +144,9 @@ if(!empty($_POST)){
 
                 $sql = 'UPDATE chat AS c
                         LEFT OUTER JOIN syuppin AS s ON c.syuppin_id=s.syuppin_id
-                        SET c.compflg=1
+                        SET c.compflg=1, c.comptime=:date
                         WHERE c.syuppin_id=:s_id';
-                $data = array(':s_id'=>$chatInfo[0]['s_id']);
+                $data = array(':s_id'=>$chatInfo[0]['s_id'], ':date'=>date('Y-m-d H:i:s'));
                 $stmt2 = queryPost($dbh, $sql, $data);
 
                 if($stmt && $stmt2){
@@ -197,7 +197,7 @@ if(!empty($_POST)){
             <button class="backbtn-Area btn-left">
                 <a href="mypage.php">マイページに戻る</a>
             </button>
-            <?php if(empty($chatInfo[0]['compflg']) && ($chatInfo[0]['seller_id'] == $myUserInfo['u_info']['user_id'])) {?>
+            <?php if(empty($chatInfo[0]['compflg']) && empty($chatInfo[0]['s_comptime']) && ($chatInfo[0]['seller_id'] == $myUserInfo['u_info']['user_id'])) {?>
                 <button class="trancomp-btn btn-right js-show-evalmodal">
                     取引完了
                 </button>
@@ -266,7 +266,7 @@ if(!empty($_POST)){
                 } ?>
         <?php    }?>
         </div>
-        <?php if(empty($chatInfo[0]['comptime'])){?>
+        <?php if(empty($chatInfo[0]['s_comptime'])){?>
             <div class="msgSend__Area">
                 <form action="" method="POST">
                     <textarea name="msg" id="" placeholder="メッセージを入力" cols="50" rows="10"></textarea>
