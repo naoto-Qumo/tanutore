@@ -13,9 +13,11 @@ $viewChatFlg = 0;
 $user = dbGetUserInfo($_SESSION['u_id']);
 $user_chat = getUserChat($_SESSION['u_id']);
 $livechat = getliveChat($_SESSION['u_id']);
-debug('生きてるユーザチャット情報：' . print_r($livechat, true));
+$user_eval = dbGetUserEval($_SESSION['u_id']);
 
+debug('生きてるユーザチャット情報：' . print_r($livechat, true));
 debug('ユーザチャット情報：' . print_r($user_chat, true));
+debug('ユーザ評価情報：' . print_r($user_eval, true));
 
 $userInfo = $user['u_info'];
 $u_syuppin = $user['s_info'];
@@ -77,9 +79,12 @@ debug('buyer' . print_r($msgInfo['buyer'], true));
             </a>
         </div>
     </header>
+    <p id="js-show-msg" style="display:none;" class="msg-slide">
+      <?php echo getSessionFlash('success'); ?>
+    </p>
     <main>
-        <button class="backbtn-Area">
-            <a href="itemlist.php">一覧に戻る</a>
+        <button class="backbtn-Area btn-left">
+                <a href="itemlist.php">一覧に戻る</a>
         </button>
         <div class="edit">
             <a href="editmypage.php">編集</a>
@@ -93,9 +98,8 @@ debug('buyer' . print_r($msgInfo['buyer'], true));
                     <?php echo $userInfo['nickname']; ?>
                 </div>
                 <div class="user__eval">
-                    <div class="star__wrap">
-                        <span class="rate rate3-5"></span>
-                    </div>
+                    <p id="star_eval"></p>
+                    <h6>取引回数：<?php echo $user_eval['count'];?></h6>
                 </div>
             </div>
         </div>
@@ -170,9 +174,15 @@ debug('buyer' . print_r($msgInfo['buyer'], true));
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-    <script src="js/Jquery.selmodal.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/itemMenu.js"></script>
+    <script src="js/jquery.raty.js"></script>
+    <script>
+        $('#star_eval').raty({
+            readOnly: true,
+            precision: true,
+            score: <?php echo $user_eval['eval'];?>
+        });
+    </script>
 </body>
 
 </html>

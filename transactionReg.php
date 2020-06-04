@@ -76,19 +76,24 @@ if(!empty($_POST)){
                 $data = array(':ex_item_id'=>$exibit, ':want_item_id'=>$want, 
                                 ':comment'=>$comment, ':regtime'=>date('Y-m-d H:i:s'),
                                 's_id'=>$s_id, 'u_id'=>$u_id);
+                $msg = SUC03;
             }else{
                 //新規登録
                 debug('新規');
                 $sql = 'INSERT INTO syuppin (user_id, ex_item_id, want_item_id, comment, regtime) VALUES (:user_id, :ex_item_id, :want_item_id, :comment, :regtime)';
                 $data = array(':user_id'=>$u_id, ':ex_item_id'=>$exibit, 
                             ':want_item_id'=>$want, ':comment'=>$comment, ':regtime'=>date('Y-m-d H:i:s'));
+                $msg = SUC04;
             }
             
             // クエリ実行
             $stmt = queryPost($dbh, $sql, $data);
-            // クエリ成功の場合
-            debug('一覧ページへ遷移します。');
-            header('Location:itemList.php');
+            if($stmt){
+                // クエリ成功の場合
+                debug('一覧ページへ遷移します。');
+                $_SESSION['success'] = $msg;
+                header('Location:itemList.php');
+            }
         } catch (Exception $e){
             error_log('エラー発生：' . $e->getMessage());
             $err_msg['common'] = MSG07;

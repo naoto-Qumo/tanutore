@@ -70,13 +70,14 @@ if(empty($myUserInfo)){
 if(!empty($_POST)){
     debug('POST送信があります。'.print_r($_POST,true));
     
-    // バリデーションチェック
     $msg = (isset($_POST['msg'])) ? $_POST['msg'] : '';
     $eval = (isset($_POST['evalVal'])) ? $_POST['evalVal'] : '';
-    // 最大文字数チェック
-    validMaxLen($msg, 'msg', 500);
+    // バリデーションチェック
     // 未入力チェック
     validRequired($msg, 'msg');
+    // 最大文字数チェック
+    validMaxLen($msg, 'msg', 500);
+    
 
     if(empty($err_msg)){
         debug('バリデーションOK');
@@ -182,7 +183,7 @@ if(!empty($_POST)){
 <body id="signupBackImg">
     <header id="header">
         <div id="top-content">
-            <a href="">
+            <a href="itemlist.php">
                 <div class="top-logo">
                     <img src="img/icon.png" alt="">
                 </div>

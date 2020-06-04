@@ -67,6 +67,13 @@ a:hover {
 main {
     margin: 0 0 80px 0;
 }
+.msg-slide {
+    text-align: center;
+    background-color: #fff0f5;
+    padding: 15px;
+    margin: 0;
+}
+
 /***********
 ページタイトル
 ************/
@@ -268,7 +275,13 @@ itemRegDetail.html
     color: #444;
 }
 .user__eval {
-    margin: 20px 0 0 0;
+    margin: 10px 0 0 0;
+}
+.user__eval h6 {
+    margin: 0;
+}
+#star_eval {
+    font-size: 1px;
 }
 /*********************
 星評価

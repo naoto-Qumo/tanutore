@@ -8,16 +8,38 @@ $(function(){
         });
     });
     //アイテム選択モーダル表示
-    $('.js-show-modal').on('click',function(){
-        $('html, body').css('overflow', 'hidden');
-        $('.js-cover-modal').show();
+    var scrollPosition;
+    $('.js-show-modal').off('click.sel').on('click.sel',function(){
+        scrollPosition = $(window).scrollTop();
+        console.log(scrollPosition);
+        $('body').addClass('fixed').css({
+            top: -1*scrollPosition
+        });
+        $('.js-cover-modal').show().css({ top: scrollPosition });
         $('.js-selmodal').show();
         var modalButton = $(this);
         //アイテム名がクリックされたらセレクトボックスに選択されたアイテムを入れる
         $('.js-item-click').off('click.sel').on('click.sel',function(){
+            var item_id = $(this).attr('value');
+            console.log(item_id);
             modalButton.text($(this).text());
             modalButton.next().find('option').attr("value",$(this).attr("value")).text($(this).text());
-            $('html, body').removeAttr('style');
+            //Ajax通信を使った画像切替
+            $.ajax({
+                type: 'POST',
+                url: 'itemAjax.php',
+                dataType: 'JSON',
+                data: {
+                    item_id: item_id
+                }
+            }).done(function(data,status){
+                console.log(status);
+                console.log(data);
+                modalButton.nextAll('.itemImg').find('.ajaxItemImg').attr("src", data['img']);
+            });
+            
+            $('body').removeClass('fixed').css({'top':0});
+            window.scrollTo(0, scrollPosition);
             $('.js-cover-modal').hide();
             $('.js-selmodal').hide();
             $('.js-open-mark').removeClass('on');
@@ -27,9 +49,16 @@ $(function(){
 
     //ばつボタンが押されたらアイテム選択モーダル閉じる
     $('.js-close-modal').on('click',function(){
-        $('html, body').removeAttr('style');
+        $('body').removeClass('fixed').css({'top':0});
+        window.scrollTo(0, scrollPosition);
         $('.js-cover-modal').hide();
         $('.js-selmodal').hide();
+        $('.js-open-mark').removeClass('on');
+        $('.subMenu').hide();
     });
 
+    // 取引登録画面Ajax
+    $('.js-item-click').off('click.item').on('click.item',function(){
+        console.log($(this).attr('value'));
+    });
 });

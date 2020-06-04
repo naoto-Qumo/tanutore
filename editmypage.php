@@ -38,6 +38,7 @@ if (!empty($_POST)) {
 
     if ($stmt) {
         debug('ユーザ情報編集成功');
+        $_SESSION['success'] = SUC01;
         header('Location:mypage.php');
     } else {
         $err_msg['common'] = MSG07;

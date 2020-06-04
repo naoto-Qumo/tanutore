@@ -8,13 +8,16 @@ debugLogStart();
 debug('セッション変数の中身：'.print_r($_SESSION,true));
 debug('get：'.print_r($_GET,true));
 debug('POST：'.print_r($_POST,true));
+
 // GETパラメータより出品IDを取得
 $s_id = (!empty($_GET['s_id'])) ? $_GET['s_id'] : '';
 
 $viewData = dbGetTranOne($s_id);
 debug('取引：'.print_r($viewData,true));
 
+$user_eval = dbGetUserEval($viewData['user_id']);
 if(!empty($_POST)){
+    // ログイン認証
     require('auth.php');
     if(!empty($_POST['delFlg'])){
         $delFlg = $_POST['delFlg'];
@@ -31,6 +34,7 @@ if(!empty($_POST)){
             $stmt = queryPost($dbh, $sql, $data);
             if($stmt){
                 debug('削除成功');
+                $_SESSION['success'] = SUC02;
                 header('Location:mypage.php');
             }   
         } catch (Exception $e) {
@@ -99,9 +103,10 @@ if(!empty($_POST)){
                     <a href=""><?php echo $viewData['nickname'];?></a>
                 </div>
                 <div class="user__eval">
-                    <div class="star__wrap">
-                        <span class="rate rate3-5"></span>
-                    </div>
+                <div class="user__eval">
+                    <p id="star_eval"></p>
+                    <h6>取引回数：<?php echo $user_eval['count'];?></h6>
+                </div>
                 </div>
             </div>
         </div>
@@ -146,6 +151,14 @@ if(!empty($_POST)){
     <script src="js/Jquery.selmodal.js"></script>
     <script src="js/app.js"></script>
     <script src="js/itemMenu.js"></script>
+    <script src="js/jquery.raty.js"></script>
+    <script>
+        $('#star_eval').raty({
+            readOnly: true,
+            precision: true,
+            score: <?php echo $user_eval['eval'];?>
+        });
+    </script>
 </body>
 
 </html>

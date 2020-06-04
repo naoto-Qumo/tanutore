@@ -43,6 +43,9 @@
            </div>
         </header>
         <main>
+            <p id="js-show-msg" style="display:none;" class="msg-slide">
+                <?php echo getSessionFlash('success'); ?>
+            </p>
             <div class="listpage-title">
             	<h1>TOPページ</h1>
             	<a href="mypage.php">
