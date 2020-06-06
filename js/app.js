@@ -54,7 +54,21 @@ $(function(){
             $('.repass-error-msgArea').hide();
         }
     });
-
+    $('.js-now_pass-check').on('blur',function(){
+        if($(this).val().length < 1){
+            $(this).addClass("input-error");
+            $('.now_pass-error-msgArea').show().text('パスワードを入力してください。');
+        }else if($(this).val().length < 7 || $(this).val().length > 255){
+            $(this).addClass("input-error");
+            $('.now_pass-error-msgArea').show().text('8文字以上128文字以内で入力してください');
+        }else if(!$(this).val().match(/^[a-zA-Z]+[0-9]+$/)){
+            $(this).addClass("input-error");
+            $('.now_pass-error-msgArea').show().text('英字と数字を両方含むパスワードを設定してください。');
+        }else{
+            $(this).removeClass("input-error");
+            $('.now_pass-error-msgArea').hide();
+        }
+    });
     //評価モーダル
     var currentScrollY;
     $('.js-show-evalmodal').on('click',function(){

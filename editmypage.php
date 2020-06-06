@@ -120,7 +120,11 @@ if (!empty($_POST)) {
                 <textarea name="myComment" id="" cols="" rows="5"><?php echo $userInfo['comment']; ?></textarea>
             </div>
         </form>
-
+        <div class="top__btn__Area">
+            <button class="editbtn btn-right">
+                <a href="editPass.php">パスワード変更</a>
+            </button>
+        </div>
     </main>
     <footer id="footer">
         <div class="copyright">

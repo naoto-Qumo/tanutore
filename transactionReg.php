@@ -133,9 +133,14 @@ debug('画面表示処理終了>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
         </div>
     </header>
     <main>
+        <button class="backbtn-Area">
+            <a href="itemlist.php">一覧に戻る</a>
+        </button>
+        
         <div class="page-title">
             <h1>交換募集登録</h1>
         </div>
+        
         <form class="form-Area" action="" method="POST">
             <div class="regItemArea ">
                 <div class="regItemTitle">出品するアイテム</div>
@@ -178,46 +183,46 @@ debug('画面表示処理終了>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
         </form>
 
         <div class="modal__cover js-cover-modal">
-        <div class="selmodal js-selmodal">
-            <ul class="itemList">
-                <li class="category__list top-li">
-                    <div class="close-parts js-close-modal"><span></span></div>
-                </li>
-                <li class="category__list">
-                    <?php foreach ($itemList['majorDiv'] as $key => $majorDiv) { ?>
-                        <div class="menu__category__link js-menu__category__link" href="">
-                            <?php echo $majorDiv['major_div']; ?>
-                            <div class="plus-parts js-open-mark"><span></span></div>
-                        </div>
-                        <ul class="subMenu">
+            <div class="selmodal js-selmodal">
+                <ul class="itemList">
+                    <li class="category__list top-li">
+                        <div class="close-parts js-close-modal"><span></span></div>
+                    </li>
+                    <li class="category__list">
+                        <?php foreach ($itemList['majorDiv'] as $key => $majorDiv) { ?>
+                            <div class="menu__category__link js-menu__category__link" href="">
+                                <?php echo $majorDiv['major_div']; ?>
+                                <div class="plus-parts js-open-mark"><span></span></div>
+                            </div>
+                            <ul class="subMenu">
 
-                            <?php foreach ($itemList['category'] as $key => $category) { ?>
-                                <?php if ($majorDiv['major_id'] === $category['major_id']) { ?>
-                                    <li class="subCategory">
-                                        <div class="menu__category__link subMenu__list js-menu__category__link" href="">
-                                            <?php echo $category['mid_div']; ?>
-                                            <div class="plus-parts js-open-mark"><span></span></div>
-                                        </div>
-                                        <ul class="subMenu">
-                                            <?php foreach ($itemList['list'] as $key => $item) { ?>
-                                                <?php if ($category['mid_id'] === $item['mid_id']) { ?>
-                                                    <li class="subMenu__item js-item-click" value="<?php echo $item['item_id']; ?>">
-                                                        <?php echo $item['item_name']; ?>
-                                                        <div class="arrow-parts">
-                                                            <span><i class="fas fa-angle-right"></i></span>
-                                                        </div>
-                                                    </li>
+                                <?php foreach ($itemList['category'] as $key => $category) { ?>
+                                    <?php if ($majorDiv['major_id'] === $category['major_id']) { ?>
+                                        <li class="subCategory">
+                                            <div class="menu__category__link subMenu__list js-menu__category__link" href="">
+                                                <?php echo $category['mid_div']; ?>
+                                                <div class="plus-parts js-open-mark"><span></span></div>
+                                            </div>
+                                            <ul class="subMenu">
+                                                <?php foreach ($itemList['list'] as $key => $item) { ?>
+                                                    <?php if ($category['mid_id'] === $item['mid_id']) { ?>
+                                                        <li class="subMenu__item js-item-click" value="<?php echo $item['item_id']; ?>">
+                                                            <?php echo $item['item_name']; ?>
+                                                            <div class="arrow-parts">
+                                                                <span><i class="fas fa-angle-right"></i></span>
+                                                            </div>
+                                                        </li>
+                                                    <?php } ?>
                                                 <?php } ?>
-                                            <?php } ?>
-                                        </ul>
-                                    </li>
+                                            </ul>
+                                        </li>
+                                    <?php } ?>
                                 <?php } ?>
-                            <?php } ?>
-                        </ul>
-                    <?php } ?>
-                </li>
-            </ul>
-        </div>
+                            </ul>
+                        <?php } ?>
+                    </li>
+                </ul>
+            </div>
         </div>
 
     </main>

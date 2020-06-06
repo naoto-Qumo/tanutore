@@ -1,5 +1,5 @@
 <?php
-if(!empty($_SESSION)){
+if(!empty($_SESSION['login_limit']) && !empty($_SESSION['login_date'])){
     debug('ログイン済ユーザです。');
     // セッション情報がログイン有効期限内か判定
     if(( $_SESSION['login_limit']+$_SESSION['login_date']) < time()){

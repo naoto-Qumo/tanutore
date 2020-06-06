@@ -46,7 +46,27 @@ $(function(){
             $('.subMenu').hide();
         });
     });
-
+    //アイテム検索
+    $('.js-serch-btn').off('click.sel').on('click.sel',function(){
+        scrollPosition = $(window).scrollTop();
+        console.log(scrollPosition);
+        $('body').addClass('fixed').css({
+            top: -1*scrollPosition
+        });
+        $('.js-cover-modal').show().css({ top: scrollPosition });
+        $('.js-selmodal').show();
+        var modalButton = $(this);
+        //アイテム名がクリックされたらモーダル閉じる
+        $('.js-item-click').off('click.sel').on('click.sel',function(){
+            
+            $('body').removeClass('fixed').css({'top':0});
+            window.scrollTo(0, scrollPosition);
+            $('.js-cover-modal').hide();
+            $('.js-selmodal').hide();
+            $('.js-open-mark').removeClass('on');
+            $('.subMenu').hide();
+        });
+    });
     //ばつボタンが押されたらアイテム選択モーダル閉じる
     $('.js-close-modal').on('click',function(){
         $('body').removeClass('fixed').css({'top':0});

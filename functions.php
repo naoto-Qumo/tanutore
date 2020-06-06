@@ -61,10 +61,20 @@ define('MSG07', 'エラーが発生しました。しばらく経ってからや
 define('MSG08', 'そのEmailはすでに登録されています。');
 define('MSG09', 'メールアドレスまたはパスワードが違います。');
 define('MSG10', '選択必須です。');
+define('MSG11', '文字で入力してください');
+define('MSG12', '半角で入力してください');
+define('MSG13', '正しくありません。');
+define('MSG14', '有効期限が切れています。');
+define('MSG15', '半角で入力してください。');
+define('MSG16', '現在のパスワードが違います。');
+define('MSG17', '現在のパスワードと同じです。');
 define('SUC01', 'ユーザ情報を更新しました。');
 define('SUC02', '出品を取り消しました。');
 define('SUC03', '出品情報を更新しました。');
 define('SUC04', '出品情報を新規登録しました。');
+define('SUC05', 'メールを送信しました。');
+define('SUC06', 'パスワード再発行メールを送信しました。');
+define('SUC07', 'パスワードが更新されました。');
 // ================================
 // グローバル関数
 // ================================
@@ -154,6 +164,27 @@ function validSelectbox($str, $key)
     global $err_msg;
     $err_msg[$key] = MSG10;
   }
+}
+// 固定長チェック
+function validLength($str, $key, $length = 8){
+  if(mb_strlen($str) !== $length){
+    global $err_msg;
+    $err_msg[$key] = $length.MSG11;
+  }
+}
+// 半角チェック
+function validHalf($str, $key)
+{
+  if (!preg_match('/^[a-zA-Z0-9]+$/', $str)) {
+    global $err_msg;
+    $err_msg[$key] = MSG15;
+  }
+}
+// パスワードチェック
+function validPass($str, $key){
+  validCharNum($str, $key);
+  validMinLen($str, $key);
+  validMaxLen($str, $key);
 }
 // =============================
 // データベース
@@ -267,7 +298,46 @@ function dbGetTranList()
     return false;
   }
 }
-// 出品情報取得
+// 検索情報取得
+function dbSerchItemList($i_id)
+{
+  //DB接続
+  //出品一覧取得
+  $dbh = dbConnect();
+  $sql = 'SELECT syuppin_id AS s_id,s.user_id,u.nickname,s.ex_item_id, ex.item_name AS ex_item_name,ex.img AS ex_item_img ,s.want_item_id, want.item_name AS want_item_name, want.img AS want_item_img,s.comment,s.regtime FROM syuppin AS s 
+          LEFT OUTER JOIN users AS u ON s.user_id = u.user_id
+          LEFT OUTER JOIN item AS ex ON s.ex_item_id = ex.item_id
+          LEFT OUTER JOIN item AS want ON s.want_item_id = want.item_id
+          WHERE s.ex_item_id=:i_id AND delFlg=0 AND comptime IS NULL
+          ORDER BY regtime DESC';
+  $data = array(':i_id'=>$i_id);
+  $stmt = queryPost($dbh, $sql, $data);
+
+  if ($stmt) {
+    $tranAll = $stmt->fetchAll();
+    return $tranAll;
+  } else {
+    return false;
+  }
+}
+function dbGetItem($i_id)
+{
+  //DB接続
+  //出品一覧取得
+  $dbh = dbConnect();
+  $sql = 'SELECT item_id, item_name FROM item
+          WHERE item_id=:i_id';
+  $data = array(':i_id'=>$i_id);
+  $stmt = queryPost($dbh, $sql, $data);
+
+  if ($stmt) {
+    $tranAll = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $tranAll;
+  } else {
+    return false;
+  }
+}
+// 取引情報取得
 function dbGetTranOne($s_id)
 {
   //DB接続
@@ -453,6 +523,20 @@ function getMsgCount($c_id)
     return false;
   }
 }
+// パスワード取得
+function dbGetUserPass($u_id){
+  $dbh = dbConnect();
+  $sql = 'SELECT user_id, pass FROM users AS u
+            WHERE user_id=:u_id';
+  $data = array(':u_id' => $u_id);
+  $stmt = queryPost($dbh, $sql, $data);
+  if ($stmt) {
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result;
+  } else {
+    return false;
+  }
+}
 // ユーザ評価情報を取得
 function dbGetUserEval($u_id)
 {
@@ -466,15 +550,26 @@ function dbGetUserEval($u_id)
     $result['seller_eval'] = $stmt->fetch(PDO::FETCH_ASSOC);
     $result['buyer_eval'] = $stmt2->fetch(PDO::FETCH_ASSOC);
     //評価の平均を求める
-    $result['eval'] =  ($result['seller_eval']['s_eval'] + $result['buyer_eval']['b_eval'])/($result['seller_eval']['count'] + $result['buyer_eval']['count']);
-    $result['count'] = ($result['seller_eval']['count'] + $result['buyer_eval']['count']);
+    $deno = ($result['seller_eval']['count'] + $result['buyer_eval']['count']);
+    if((int)$deno !== 0){
+      $result['eval'] =  ($result['seller_eval']['s_eval'] + $result['buyer_eval']['b_eval'])/$deno;
+      $result['count'] = ($result['seller_eval']['count'] + $result['buyer_eval']['count']);
+    } else {
+      $result['eval'] =  0;
+      $result['count'] = 0;
+    }
     return $result;
+    
   } else {
     return false;
   }
 }
 
-//sessionを１回だけ取得できる
+// =============================
+// その他処理
+// =============================
+
+//sessionを１回だけ取得で
 function getSessionFlash($key){
   if(!empty($_SESSION[$key])){
     $data = $_SESSION[$key];
@@ -483,6 +578,36 @@ function getSessionFlash($key){
   }
 }
 
+// ランダムキー生成
+function makeRandKey($length = 8){
+  static $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJLKMNOPQRSTUVWXYZ0123456789';
+  $str = '';
+  for ($i = 0; $i < $length; ++$i) {
+      $str .= $chars[mt_rand(0, 61)];
+  }
+  return $str;
+}
+
+// メール送信
+function sendMail($from, $to, $subject, $comment){
+  if(!empty($from) && !empty($to) && !empty($subject) && !empty($comment)){
+    // 文字化けしないように設定(お決まりのパターン)
+    // 使っている言語の設定
+    mb_language("Japanese");
+    // 内部の言語をどうエンコーディングするか設定
+    mb_internal_encoding("UTF-8");
+
+    // メール送信(結果はTrue or False)
+    $result = mb_send_mail($to, $subject, $comment, "From: ".$from);
+    // 送信結果チェック
+    if($result){
+      debug('メール送信に成功しました');
+    } else {
+      debug('メール送信に失敗しました');
+    }
+
+  }
+}
 // =============================
 // 画像処理
 // =============================

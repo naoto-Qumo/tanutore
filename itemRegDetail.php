@@ -88,7 +88,7 @@ if(!empty($_POST)){
     </header>
     <main>
         <button class="backbtn-Area">
-            <?php if($viewData['user_id'] !== $_SESSION['u_id']){?>
+            <?php if(empty($_SESSION['u_id']) || $viewData['user_id'] !== $_SESSION['u_id']){?>
                 <a href="itemlist.php">一覧に戻る</a>
             <?php } else {?>
                 <a href="mypage.php">マイページに戻る</a>
@@ -156,7 +156,12 @@ if(!empty($_POST)){
         $('#star_eval').raty({
             readOnly: true,
             precision: true,
-            score: <?php echo $user_eval['eval'];?>
+            score: <?php 
+            if(isset($user_eval['eval'])){
+                echo $user_eval['eval'];
+            } else {
+                echo '0';
+            }?>
         });
     </script>
 </body>

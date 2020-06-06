@@ -6,8 +6,8 @@ debug('ログイン画面');
 debug('「「「「「「「「「「「「「「「「「「「「「「「');
 debugLogStart();
 
-// ログイン認証
-require('auth.php');
+debug('セッション変数：'.print_r($_SESSION,true));
+
 
 if(!empty($_POST)){
     //フォーム情報変数格納
@@ -113,6 +113,9 @@ debug('画面表示処理完了>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.');
         </div>
     </header>
     <main>
+        <p id="js-show-msg" style="display:none;" class="msg-slide">
+            <?php echo getSessionFlash('success2'); ?>
+        </p>
         <div class="page-title">
             <h2>ログイン</h2>
         </div>
@@ -135,7 +138,7 @@ debug('画面表示処理完了>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.');
                 <label for="login-checkbox" class="check-label">次回から自動でログインする</label>
             </div>
             <input type="submit" value="ログインする">
-            <a href="passResetSend.html" class="forgot">パスワードを忘れた方はこちら</a>
+            <a href="passResetSend.php" class="forgot">パスワードを忘れた方はこちら</a>
         </form>
     </main>
     <footer id="footer">
