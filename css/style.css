@@ -874,3 +874,15 @@ input[type="submit"].editcomplete{
     border: none;
     border-radius: 3px;
 }
+/*********************
+regComp.html
+**********************/
+.pageMsg {
+    padding: 0 15px;
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+}
+.twitter-share-button {
+   
+}

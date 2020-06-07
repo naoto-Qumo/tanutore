@@ -126,7 +126,7 @@
                                             <ul class="subMenu">
                                                 <?php foreach ($itemList['list'] as $key => $item) { ?>
                                                     <?php if ($category['mid_id'] === $item['mid_id']) { ?>
-                                                        <a href="itemList.php?i_id=<?php echo $item['item_id']; ?>">
+                                                        <a href="itemlist.php?i_id=<?php echo $item['item_id']; ?>">
                                                             <li class="subMenu__item js-item-click" value="<?php echo $item['item_id']; ?>">
                                                                 <?php echo $item['item_name']; ?>
                                                                 <div class="arrow-parts">

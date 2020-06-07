@@ -92,7 +92,7 @@ if(!empty($_POST)){
                 // クエリ成功の場合
                 debug('一覧ページへ遷移します。');
                 $_SESSION['success'] = $msg;
-                header('Location:itemList.php');
+                header('Location:itemlist.php');
             }
         } catch (Exception $e){
             error_log('エラー発生：' . $e->getMessage());
