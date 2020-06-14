@@ -12,6 +12,9 @@ body {
     /*バリデーションメッセージをが表示されることで背景サイズが変わるため*/
     background-size: contain;
 }
+a.list {
+    color: #444;
+}
 a {
     text-decoration: none;
     color: #0075c2;
@@ -64,6 +67,31 @@ a:hover {
 main {
     margin: 0 0 80px 0;
 }
+
+@media screen and (min-width: 561px){
+.all{
+	margin: 0 auto;
+	width: 560px;
+	
+}
+}
+@media screen and (min-width: 561px){
+.wide{
+	margin: 0 auto;
+	width: 680px;
+	
+}
+}
+.msg-slide {
+    text-align: center;
+    background-color: #fff0f5;
+    padding: 15px;
+    margin: 0;
+}
+.commonErrArea {
+    margin: 10px 0px 20px 0px;
+    color: #e4007f;
+}
 /***********
 ページタイトル
 ************/
@@ -81,6 +109,9 @@ main {
     width: 100%;
     padding: 20px;
     font-size: 18px;
+}
+p.formMsg{
+    margin: 0;
 }
 input[type="text"] {
     width: 100%;
@@ -174,6 +205,8 @@ login.html
 /*=======================================
 transactionReg.html
 =========================================*/
+
+@media screen and (max-width: 560px){	
 .regItemArea {
     min-height: 100px;
     overflow: hidden;
@@ -189,6 +222,10 @@ transactionReg.html
 .regItemTitle {
     margin: 0 0 10px 0;
 }
+.regItemcome {
+    margin: 0 0 10px 0;	
+	
+}
 .regSelect {
     color: #444;
     width: 100%;
@@ -198,6 +235,7 @@ transactionReg.html
     font-size: 12px;
     margin: 0 0 15px 0;
 }
+
 .itemImg {
     width: 50%;
     margin: 0 auto;
@@ -218,11 +256,120 @@ transactionReg.html
     font-size: 14px;
     color: #444;
     border: 1px solid #e7e7e7;
+    border-radius: 3px;
+}
+}
+@media screen and (min-width: 561px){	
+.regItemArea {
+    min-height: 100px;
+    overflow: hidden;
+    margin: 0 0 30px 0;
+}
+.lastArea {
+    margin: 0 0 20px 0;
+}
+.regArea-left {
+    min-height: 100px;
+    width: 100%;
+}
+.regItemTitle {
+    margin: 0 0 10px 0;	
+	position: relative;
+	top: 80px;
+}	
+.regItemcome {
+    margin: 0 0 10px 0;	
+	
+}
+.regSelect {
+    color: #444;
+    width: 100%;
+    height: 50px;
+    background-color: #f4f4f4;
+    border: 1px solid #e7e7e7;
+    font-size: 12px;
+    margin: 0 0 15px 0;
+}
+.itemImg {
+    width: 30%;
+	float: right;
+    border: 1px solid #e7e7e7;
+	
+}
+.itemImg img {
+    width: 100%;
+}
+.regComment {
+    margin: 0 0 30px 0;
+}
+.regComment textarea {
+    width: 100%;
+    height: 100px;
+    background-color: #f4f4f4;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    color: #444;
+    border: 1px solid #e7e7e7;
+}
 }
 /********************
 itemRegDetail.html
 *********************/
+@media screen and (max-width: 560px){
 .backbtn-Area {
+    margin: 15px;
+    font-size: 18px;
+    padding: 5px;
+    background-color: rgba(250, 250, 250, 0.5);
+    border: none;
+    border-radius: 3px;
+}
+.backbtn-Area a::before {
+    font-family:"FontAwesome";
+    content:"\f0d9";
+    margin-right: 10px;
+}
+.user-Area {
+    width: 100%;
+    padding: 15px;
+    overflow: hidden;
+}
+.user__icon {
+    width: 30%;
+    float: left;
+}
+.user__icon img {
+    width: 100%;
+    border-radius: 50%;
+}
+.user__info {
+    width: 70%;
+    float: left;
+    text-align: center;
+}
+.user__name {
+    text-align: center;
+    font-size: 24px;
+    border-bottom: 1px solid #444;
+    width: 80%;
+    margin: 0 auto;
+}
+.user__name a {
+    color: #444;
+}
+.user__eval {
+    margin: 10px 0 0 0;
+}
+.user__eval h6 {
+    margin: 0;
+}
+#star_eval {
+    font-size: 1px;
+}
+}
+@media screen and (min-width: 561px){
+	.backbtn-Area {
     margin: 15px;
     font-size: 18px;
     padding: 5px;
@@ -258,7 +405,7 @@ itemRegDetail.html
     border-bottom: 1px solid #444;
     width: 80%;
     margin: 0 auto;
-    padding: 5px 10px 3px 10px;
+    padding: 50px 10px 3px 10px;
 }
 .user__name a {
     color: #444;
@@ -266,6 +413,8 @@ itemRegDetail.html
 .user__eval {
     margin: 20px 0 0 0;
 }
+}
+
 /*********************
 星評価
 **********************/
@@ -355,6 +504,7 @@ itemRegDetail.html
     background-color: #f4f4f4;
     min-height: 150px;
     margin: 0 0 20px 0;
+    border-radius: 3px;
 }
 .negobtn {
     width: 100%;
@@ -363,12 +513,26 @@ itemRegDetail.html
     padding: 15px;
     margin: 15px 0 0 0;
     border-radius: 5px;
-}
-.negobtn a {
+    border: none;
     color: #fff;
+    display: inline-block;
+    text-align: center;
+}
+.negobtn:hover {
+    cursor: pointer;
+}
+.negobtn.delTran {
+    background-color: #0068b7;
 }
 .btnArea {
     padding: 15px;
+}
+.editMenu {
+    display: flex;
+    justify-content: space-between;
+}
+.editMenu .negobtn {
+    width: 45%;
 }
 /**********
 msg.html
@@ -446,6 +610,7 @@ msg.html
 .itemName {
     padding: 5px 0 10px 0;
 }
+@media screen and (max-width: 560px){
 .msg__Area {
     background-color: #fffff9;
     height: 400px;
@@ -456,6 +621,20 @@ msg.html
     padding: 15px;
     overflow-y: scroll;
     box-sizing: border-box;
+}
+}
+@media screen and (min-width: 561px){
+.msg__Area {
+    background-color: #fffff9;
+    height: 600px;
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 15px;
+    overflow-y: scroll;
+    box-sizing: border-box;
+}
 }
 .msg__contents {
     width: 80%;
@@ -607,6 +786,9 @@ msg.html
 .modalTitle {
     text-align: center;
 }
+.modalTitle .modalSubTitle {
+    margin: 0;
+}
 .evalSel {
     width: 100%;
 }
@@ -646,13 +828,13 @@ msg.html
 /*=======================================
 itemlist.html
 =========================================*/
+@media screen and (max-width: 560px){
 .listpage-title {
     margin: 10px 0;
     text-align: center;
 }
 .listpage-title h1 {
 	display: inline;
-	margin-left: 75px;
 }
 .listpage-title .home{
 	float: right;
@@ -664,19 +846,21 @@ itemlist.html
 .itemmain {
     background-color: rgba(255, 255, 249, 0.4);
     height: 400px;
-    width: 95%;
+    width: 320px;
     margin: 0 auto;
     border-radius: 3px;
     overflow: hidden;
-    padding: 15px;
     overflow-y: scroll;
-    box-sizing: border-box;
+	box-sizing: border-box;
+	display: -webkit-flex;
+	flex-wrap: wrap;
+    -webkit-justify-content: flex-start;
+	
 }
 .itemmain .sub {
-	margin: 10px 0 0 8px;
+	margin: 10px 0 0 20px;
     float: left;
     display: inline-block;  
-    font-size: 12px;
 }
 .itemmain .sub .listimg {
     width: 80px;
@@ -684,7 +868,9 @@ itemlist.html
     background-color: #52D3FF;
 }
 .itemmain .sub .title {
-	font-size: 10px;
+	display: block;
+	width: 80px;
+	font-size: 8px;
     font-weight: bold;
 }
 .botan {
@@ -706,9 +892,96 @@ itemlist.html
     color: #fff;
     border-radius: 5px;
 }
+}
+@media screen and (min-width: 561px){
+.listpage-title {
+    margin: 10px 0;
+    text-align: center;
+}
+.listpage-title h1 {
+	display: inline;
+}
+.serch-result__Area {
+    padding: 0 15px 0 15px;
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+}
+.serch-bar {
+    display: flex;
+    align-items: center;
+}
+.listpage-title h1 {
+	display: inline;
+	margin-left: 75px;
+}
+.listpage-title .home{
+	float: right;
+	margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: #52D3FF;
+}
+.itemmain {
+    background-color: rgba(255, 255, 249, 0.4);
+    height: 700px;
+    width: 644px;
+    margin: 0 auto;
+    border-radius: 3px;
+    overflow: hidden;
+    overflow-y: scroll;
+    box-sizing: border-box;
+	display: -webkit-flex;
+	flex-wrap: wrap;
+    -webkit-justify-content: flex-start;
+}
+.itemmain .sub {
+	width: 100px;
+	margin: 10px 0 0 24px;
+    float: left;
+    display: inline-block;
+}
+.itemmain .sub .listimg {
+    width: 100px;
+    height: 100px;
+    background-color: #52D3FF;
+	
+}
+.itemmain .sub .title {
+	display: block;
+	width: 100px;
+	font-size: 14px;
+}
+.itemmain .sub .title {
+	font-size: 10px;
+    font-weight: bold;
+}
+.botan {
+	width: 100%;
+	display: inline-block;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 70px;
+}
+.botan .touroku {
+    background-color: #0068b7;
+	padding: 10px 10% 10px 10%;
+    color: #fff;
+    border-radius: 5px;
+}
+.botan .serch {
+    background-color: #0068b7;
+    padding: 10px 10% 10px 10%;
+    color: #fff;
+    border-radius: 5px;
+}
+}
+
 /*=======================================
 mypage.html
 =========================================*/
+@media screen and (max-width: 560px){
 .myComment { 
     padding: 15px;
 }
@@ -722,14 +995,22 @@ mypage.html
 .itemArea {
     width: 100%;
     background-color: #f4f4f4;
-    min-heigh
-	t: 200px;
+    min-height: 200px;
     margin: 0 0 20px 0;
     overflow-y: scroll;
 }
+.itemArea .syuppin {
+	width: 95%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.itemArea .itemname {
+    display: block;
+	float: left;
+}
 .itemArea p {
 	display: inline-block;
-	padding-left: 10px;
 }
 .itemArea .status {
 	display: inline-block;
@@ -737,17 +1018,57 @@ mypage.html
 	float: right;
 	color: #0068b7;
 }
-.itemArea .complete {
+
+.edit{
+	float: right;
+    margin: 15px 0;
+    font-size: 18px;
+    padding: 5px 15px;
+    border: none;
+    color:#fff;
+}
+.archive{
+	float: right;
+    padding: 5px 15px;
+	display: inline-block;
+}
+}
+@media screen and (min-width: 561px){
+.myComment { 
+    padding: 15px;
+}
+.mycommentArea {
+    padding: 10px;
+    width: 100%;
+    background-color: rgba(255, 255, 249, 0.4);
+    min-height: 70px;
+    margin: 0 0 20px 0;
+}
+.itemArea {
+    width: 100%;
+    background-color: #f4f4f4;
+    min-height: 200px;
+    margin: 0 0 20px 0;
+    overflow-y: scroll;
+}
+.itemArea .syuppin {
+	width: 95%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.itemArea .itemname {
+    display: block;
+	float: left;
+}
+.itemArea p {
+	display: inline-block;
+}
+.itemArea .status {
 	display: inline-block;
 	padding-right: 10px;
 	float: right;
-	color: #FF0000;
-}
-.itemArea .completedate{
-	display: block;
-	padding-right: 10px;
-	float: right;
-	color: #FF0000;
+	color: #0068b7;
 }
 .edit{
 	float: right;
@@ -762,10 +1083,14 @@ mypage.html
     padding: 5px 15px;
 	display: inline-block;
 }
-
+.status>a {
+    text-decoration: underline;
+}
+}
 /*=======================================
 editmypage.html
 =========================================*/
+@media screen and (max-width: 560px){
 .editcomplete{
 	float: right;
     margin: 15px 0;
@@ -785,26 +1110,132 @@ editmypage.html
     color: #444;
     border: 1px solid #e7e7e7;
 }
+}
+@media screen and (min-width: 561px){
+.editcomplete{
+	float: right;
+    margin: 15px 0;
+    font-size: 18px;
+    padding: 5px 15px;
+    border: none;
+	color: #FF0000;
+}
+.user__name.edit {
+    text-align: left;
+    border: none;
+    margin: 0;
+    font-size: 16px;
+    color: #444;
+}
+.editImg img {
+    filter: brightness(70%);
+}
+.myComment textarea {
+    width: 100%;
+    height: 100px;
+    background-color: #f4f4f4;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    color: #444;
+    border: 1px solid #e7e7e7;
+}
+}
 
 /*=======================================
 archivepage.html
 =========================================*/
 
-
+@media screen and (max-width: 560px){
 .archiveArea{
 	width: 95%;
     background-color: #f4f4f4;
-    min-height: 500px;
+    min-height: 400px;
     margin: 0 auto;
     overflow-y: scroll;
 }
+
+.archiveArea .syuppin {
+	width: 95%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.archiveArea .itemname {
+    display: block;
+	float: left;
+}
 .archiveArea p {
 	display: inline-block;
-	padding-left: 10px;
 }
 .archiveArea .status {
 	display: inline-block;
 	padding-right: 10px;
 	float: right;
 	color: #0068b7;
+}
+}
+@media screen and (min-width: 561px){
+.archiveArea{
+	width: 540px;
+    background-color: #f4f4f4;
+    min-height: 500px;
+    margin: 0 auto;
+    overflow-y: scroll;
+}
+
+.archiveArea .syuppin {
+	width: 95%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.archiveArea .itemname {
+    display: block;
+	float: left;
+}
+.archiveArea p {
+	display: inline-block;
+}
+.archiveArea .status {
+	display: inline-block;
+	padding-right: 10px;
+	float: right;
+	color: #0068b7;
+}
+.selIcon { 
+    display: none;
+}
+.editImg {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fa-camera {
+    position: absolute;
+    color: #fff;
+    z-index: 2;
+    opacity: 0.7;
+}
+.editbtn {
+    margin: 15px;
+    font-size: 18px;
+    padding: 5px;
+    background-color: rgba(250, 250, 250, 0.5);
+    border: none;
+    border-radius: 3px;
+}
+}
+/*********************
+regComp.html
+**********************/
+.pageMsg {
+    padding: 0 15px;
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+}
+.twitter-share-button {
+	
 }
