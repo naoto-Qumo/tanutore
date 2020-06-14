@@ -78,6 +78,16 @@ if(!empty($_POST)){
 <html>
 
 <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169366360-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-169366360-1');
+</script>
+
     <meta charset="utf-8" name="viewport" content="width=device-width">
     <title>たぬトレ</title>
     <link rel="stylesheet" href="css/reset.css">
@@ -121,7 +131,7 @@ if(!empty($_POST)){
     </main>
     <footer id="footer">
         <div class="copyright">
-            ©️ 2020 Qumo.inc
+            &#169;? 2020 Qumo.inc
         </div>
     </footer>
 

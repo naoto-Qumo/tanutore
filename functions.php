@@ -11,7 +11,7 @@ ini_set('error_log', 'php.log');
 // デバッグ
 //================================
 //デバッグフラグ
-$debug_flg = true;
+$debug_flg = false;
 //デバッグ関数
 function debug($str)
 {
@@ -25,7 +25,7 @@ function debug($str)
 // セッション準備
 // ===============================
 // セッションファイルの置き場所を変更する
-session_save_path('/var/tmp');
+//session_save_path('/var/tmp');
 // ガーベージコレクションが削除するセッションの有効期限を設定(30日経っているものだけ1/100の確率で削除)
 ini_set('session.gc_maxlifetime', 60 * 60 * 24 * 30);
 // ブラウザを閉じても削除されないようにCookie自体の有効期限を延ばす
@@ -193,11 +193,11 @@ function validPass($str, $key){
 function dbConnect()
 {
   // DBへの接続準備
-  $dsn = 'mysql:dbname=tanutore;host=localhost;charset=utf8';
-  $user = 'root';
-  $password = 'root';
+  $dsn = 'mysql:dbname=qumo_tanutore;host=mysql1.php.xdomain.ne.jp;charset=utf8';
+  $user = 'qumo_tanutore';
+  $password = 'tqaunmuotore';
   $options = array(
-    // SQL実行失敗時にはエラ〜コードのみ設定
+    // SQL実行失敗時にはエラ&#12316;コードのみ設定
     PDO::ATTR_ERRMODE => PDO::ERRMODE_SILENT,
     // デフォルトフェッチモードを連想配列形式に設定
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -506,6 +506,23 @@ function getliveChat($u_id)
     return false;
   }
 }
+// 募集登録に対してチャットページが存在するかチェック
+function getExistChat($u_id, $s_id){
+  // DB接続
+  $dbh = dbConnect();
+  // SQL
+  $sql = 'SELECT chat_id FROM chat AS c
+          WHERE buyer_id=:u_id AND syuppin_id=:s_id AND compflg=0 AND comptime IS NULL';
+  $data = array(':u_id' => $u_id, ':s_id'=>$s_id);
+  $stmt = queryPost($dbh, $sql, $data);
+  if($stmt){
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return  $result;
+  } else {
+    return false;
+  }
+
+}
 // メッセージ件数取得
 function getMsgCount($c_id)
 {
@@ -605,9 +622,13 @@ function sendMail($from, $to, $subject, $comment){
     } else {
       debug('メール送信に失敗しました');
     }
-
   }
 }
+// サニタイズ
+function sanitize($str){
+  return htmlspecialchars($str,ENT_QUOTES);
+}
+
 // =============================
 // 画像処理
 // =============================

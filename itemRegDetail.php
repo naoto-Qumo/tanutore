@@ -11,11 +11,23 @@ debug('POST：'.print_r($_POST,true));
 
 // GETパラメータより出品IDを取得
 $s_id = (!empty($_GET['s_id'])) ? $_GET['s_id'] : '';
-
 $viewData = dbGetTranOne($s_id);
 debug('取引：'.print_r($viewData,true));
+if(empty($viewData)){
+    header('Location:mypage.php');
+}
+
+
 
 $user_eval = dbGetUserEval($viewData['user_id']);
+
+
+
+// この募集取引に関してすでにチャットページが生成されているかチェック
+$chatChk = (!empty($_SESSION['u_id'])) ? getExistChat($_SESSION['u_id'], $s_id) : '';
+
+debug('取引チャット存在チェック：'.print_r($chatChk, true));
+
 if(!empty($_POST)){
     // ログイン認証
     require('auth.php');
@@ -65,8 +77,24 @@ if(!empty($_POST)){
 <html>
 
 <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169366360-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-169366360-1');
+</script>
+
     <meta charset="utf-8" name="viewport" content="width=device-width">
     <title>たぬトレ</title>
+    <!-- twitterカード-->
+　　　　<meta name="twitter:card" content="summary" />
+    <meta property="og:url" content="http://qumo.php.xdomain.jp/itemRegDetail.php?s_id=<?php echo sanitize($s_id);?>"> 
+    <meta property="og:title" content="たぬトレ | あつまれどうぶつの森 アイテム交換" />
+    <meta property="og:description" content="あつ森アイテム物々交換募集サービス！">
+    <meta property="og:image" content="http://qumo.php.xdomain.jp/img/tanutoreIcon.png" />
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
@@ -129,7 +157,9 @@ if(!empty($_POST)){
         </div>
         <form action="" method="POST">
             <div class="btnArea">
-                <?php if($viewData['user_id'] !== $_SESSION['u_id']){?>
+                <?php if(!empty($chatChk)){?>
+                    <a class="negobtn" href="msg.php<?php echo '?c_id='.$chatChk['chat_id']; ?>">取引中チャットページへ</a>
+                <?php }elseif($viewData['user_id'] !== $_SESSION['u_id']){?>
                     <button class="negobtn" name="nego" value="1">交渉する</button>
                 <?php } else {?>
                     <div class="editMenu">
@@ -142,7 +172,7 @@ if(!empty($_POST)){
     </main>
     <footer id="footer">
         <div class="copyright">
-            ©️ 2020 Qumo.inc
+            &#169;&#65039; 2020 Qumo.inc
         </div>
     </footer>
 
@@ -158,7 +188,7 @@ if(!empty($_POST)){
             precision: true,
             score: <?php 
             if(isset($user_eval['eval'])){
-                echo $user_eval['eval'];
+               echo $user_eval['eval'];
             } else {
                 echo '0';
             }?>

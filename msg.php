@@ -171,6 +171,16 @@ if(!empty($_POST)){
 <html>
 
 <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169366360-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-169366360-1');
+</script>
+
     <meta charset="utf-8" name="viewport" content="width=device-width">
     <title>たぬトレ</title>
     <link rel="stylesheet" href="css/reset.css">
@@ -221,13 +231,13 @@ if(!empty($_POST)){
                 <div class="itemInfo">
                     <span class="tranItem-color">出品アイテム</span>
                     <div class="itemName">
-                        <?php echo $sInfo['ex_item_name']?>
+                        <?php echo sanitize($sInfo['ex_item_name']);?>
                     </div>
                 </div>
                 <div class="itemInfo">
                     <span class="wantItem-color">欲しいアイテム</span>
                     <div class="itemName">
-                    <?php echo $sInfo['want_item_name']?>
+                    <?php echo sanitize($sInfo['want_item_name']);?>
                     </div>
                 </div>
             </div>
@@ -241,14 +251,14 @@ if(!empty($_POST)){
 
                             <div class="msg__contents msg-left">
                                 <div class="msgUser">
-                                    <img src="<?php echo $partnerUserInfo['u_info']['icon'];?>" alt="">
+                                    <img src="<?php echo sanitize($partnerUserInfo['u_info']['icon']);?>" alt="">
                                 </div>
                                 <div class="msg__wrap">
                                     <p class="msg__text">
                                         <span class="triangle"></span>
-                                        <span class="hukidashi"><?php if(!empty($val['message'])) echo $val['message'];?></span>
+                                        <span class="hukidashi"><?php if(!empty($val['message'])) echo sanitize($val['message']);?></span>
                                     </p>
-                                    <div class="send__time"><?php if(!empty($val['datetime'])) echo $val['datetime'];?></div>
+                                    <div class="send__time"><?php if(!empty($val['datetime'])) echo sanitize($val['datetime']);?></div>
                                 </div>
                             </div>
 
@@ -256,9 +266,9 @@ if(!empty($_POST)){
                             <div class="msg__contents msg-right">
                                 <p class="msg__text">
                                     <span class="triangle"></span>
-                                    <span class="hukidashi"><?php if(!empty($val['message'])) echo $val['message'];?></span>
+                                    <span class="hukidashi"><?php if(!empty($val['message'])) echo sanitize($val['message']);?></span>
                                 </p>
-                                <div class="send__time"><?php if(!empty($val['datetime'])) echo $val['datetime'];?></div>
+                                <div class="send__time"><?php if(!empty($val['datetime'])) echo sanitize($val['datetime']);?></div>
                             </div>
                     <?php }
                     }
@@ -314,7 +324,7 @@ if(!empty($_POST)){
     </main>
     <footer id="footer">
         <div class="copyright">
-            ©️ 2020 Qumo.inc
+            &#169;&#65039; 2020 Qumo.inc
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"

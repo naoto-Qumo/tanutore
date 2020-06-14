@@ -89,10 +89,17 @@ if(!empty($_POST)){
             // クエリ実行
             $stmt = queryPost($dbh, $sql, $data);
             if($stmt){
-                // クエリ成功の場合
-                debug('一覧ページへ遷移します。');
-                $_SESSION['success'] = $msg;
-                header('Location:itemlist.php');
+                if(!$edit_flg){
+                    // クエリ成功の場合
+                    debug('新規登録です');
+                    $_SESSION['s_id'] = $dbh->lastInsertId();
+                    header('Location:regComp.php');
+                }else{
+                    // クエリ成功の場合
+                    debug('一覧ページへ遷移します。');
+                    $_SESSION['success'] = $msg;
+                    header('Location:regComp.php');
+                }
             }
         } catch (Exception $e){
             error_log('エラー発生：' . $e->getMessage());
@@ -110,6 +117,16 @@ debug('画面表示処理終了>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
 <html>
 
 <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169366360-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-169366360-1');
+</script>
+
     <meta charset="utf-8" name="viewport" content="width=device-width">
     <title>たぬトレ</title>
     <link rel="stylesheet" href="css/reset.css">
@@ -228,7 +245,7 @@ debug('画面表示処理終了>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
     </main>
     <footer id="footer">
         <div class="copyright">
-            ©️ 2020 Qumo.inc
+            &#169;&#65039; 2020 Qumo.inc
         </div>
     </footer>
 

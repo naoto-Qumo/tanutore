@@ -7,11 +7,10 @@
     debug('セッション変数の中身：'.print_r($_SESSION,true));
 
     $i_id = (!empty($_GET['i_id'])) ? $_GET['i_id'] : '';
-
+    debug('直前のURL:'.print_r($_SERVER['HTTP_REFERER'], true));
     if(empty($i_id)){
         // 全出品情報取得
         $tranAll = dbGetTranList();
-        debug('アイテム：'.print_r($itemList,true));
         if($tranAll){
             debug('出品一覧取得成功');
             debug(print_r($tranAll,true));
@@ -40,6 +39,16 @@
 <!DOCTYPE html>
 <html>
     <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169366360-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-169366360-1');
+</script>
+
         <meta charset="utf-8" name="viewport" content="width=device-width">
         <title>たぬトレ</title>
         <link rel="stylesheet" href="css/reset.css">
@@ -90,9 +99,9 @@
         			<div class="sub">
                         <a class="list" href="itemRegDetail.php?<?php echo 's_id='.$val['s_id']?>">
                             <img src="<?php if(!empty($val['ex_item_img'])){echo $val['ex_item_img'];}else{ echo 'img/noimage2.png';}?>" alt="" class="listimg">
-            			    <h2 class="title">出：<?php if(!empty($val['ex_item_name'])) echo $val['ex_item_name'];?></h2>
-            			    <h2 class="title">求：<?php if(!empty($val['want_item_name'])) echo $val['want_item_name'];?></h2>
-                            <h2 class="title">出品者：<?php if(!empty($val['nickname'])) echo $val['nickname'];?></h2>
+            			    <h2 class="title">出：<?php if(!empty($val['ex_item_name'])) echo sanitize($val['ex_item_name']);?></h2>
+            			    <h2 class="title">求：<?php if(!empty($val['want_item_name'])) echo sanitize($val['want_item_name']);?></h2>
+                            <h2 class="title">出品者：<?php if(!empty($val['nickname'])) echo sanitize($val['nickname']);?></h2>
                         </a>
                     </div>
                     <?php }?>                        
@@ -149,7 +158,7 @@
 
         <footer id="footer">
            <div class="copyright">
-                ©️ 2020 Qumo.inc
+                &#169;&#65039; 2020 Qumo.inc
            </div>
         </footer>
 
