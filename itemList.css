@@ -1,0 +1,212 @@
+/*
+選択をモーダルで表示したリストで行うため、
+セレクトボックス自体は隠しておいて値だけjQueryで書き換える
+*/
+body.fixed {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+}
+.itemSelect {
+	display: none;
+}
+
+@media screen and (max-width: 560px){
+.selModalButton{
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	padding: 6px 12px 6px 12px;
+	border: 1px solid #777;
+	border-radius: 3px;
+	background: #fff;
+	color: #333;
+	text-decoration: none;
+	line-height: 38px;
+	cursor: pointer;
+	text-align: left;
+    margin: 0 0 15px 0;
+    height: 50px;
+	font-size: 16px;
+	box-sizing: border-box;
+}
+}
+@media screen and (min-width: 561px){
+.selModalButton{
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	width: 60%;
+	padding: 6px 12px 6px 12px;
+	border: 1px solid #777;
+	border-radius: 3px;
+	background: #fff;
+	color: #333;
+	text-decoration: none;
+	line-height: 38px;
+	cursor: pointer;
+	text-align: left;
+    margin: 0 0 15px 0;
+    height: 50px;
+	font-size: 16px;
+	box-sizing: border-box;
+	position: relative;
+	top: 80px
+}
+}
+.selModalButton::before, .selModalButton::after{
+	content: '';
+	position: absolute;
+	z-index: 2;
+	right: 7px;
+	width: 0;
+	height: 0;
+	border: 4px dashed;
+	border-color: #333 transparent;
+	pointer-events: none;
+}
+.selModalButton::before{
+	border-bottom-style: solid;
+	border-top: none;
+	top: 30%;
+}
+.selModalButton::after{
+	border-top-style: solid;
+	border-bottom: none;
+	bottom: 30%;
+}
+/*モーダル表示時の背景*/
+.modal__cover {
+	background: rgba(0,0,0, .5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+	display: none;
+}
+/*
+モーダル上で表示するリスト
+*/
+.selmodal {
+	top: 10%;
+	position: absolute;
+	z-index: 3;
+	width: 100%;
+	display: none;
+	height: 70%;
+	overflow-y: scroll;
+}
+.itemList {
+    list-style: none;
+    font-size: 18px;
+    padding-left: 0px;
+    width: 95%;
+	margin: 0 auto;
+	border: #777;
+	border-radius: 3px;
+}
+/*ばつボタン*/
+.close-parts {
+	display: block;
+	width: 50px;
+	height: 50px;
+	position: relative;
+	cursor: pointer;
+    float: right;
+}
+.close-parts span::before,
+.close-parts span::after {
+	display: block;
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 65%;
+	width: 50%;
+	height: 10%;
+	margin: -8% 0 0 -42%;
+	background: #444;
+}
+.close-parts span::before {
+	transform: rotate(-45deg);
+}
+.close-parts span::after {
+	transform: rotate(45deg);
+}
+/*プラスボタン*/
+.plus-parts {
+	display: block;
+	width: 50px;
+	height: 50px;
+	position: relative;
+	cursor: pointer;
+    float: right;
+}
+.plus-parts span::before,
+.plus-parts span::after {
+	display: block;
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 70%;
+	width: 40%;
+	height: 5%;
+	margin: -8% 0 0 -42%;
+	background: #555555;
+}
+.plus-parts span::after {
+	transform: rotate(90deg);
+}
+.plus-parts.on span::after {
+	display: none;
+}
+/*山かっこ*/
+.arrow-parts {
+	display: block;
+	width: 50px;
+	height: 50px;
+	position: relative;
+	cursor: pointer;
+	float: right;
+	text-align: center;
+	font-size: 24px;
+}
+.category__list {
+    background-color: #f8f4e6;
+    border-bottom: 1px solid #d3d6dd;
+    line-height: 50px;
+    display: block;
+    overflow: hidden;
+}
+.category__list.top-li {
+	background-color: #eee7e0;
+}
+.menu__category__link {
+	border-bottom: 1px solid #d3d6dd;
+    color: #444;
+    cursor: pointer;
+    display: block;
+    padding-left: 1em;
+    position: relative;
+}
+.subMenu {
+    list-style: none;
+    display: none;
+    font-size: 14px;
+    padding: 0px;
+}
+.subMenu__list {
+	padding-left: 1.5em;
+	background-color: #fff9f5;
+}
+.subMenu__item {
+    display: block;
+    border-bottom: 1px solid #d3d6dd;
+	padding-left: 2.5em;
+	cursor: pointer;
+	text-decoration: underline;
+	background-color: #fffff9;
+	overflow: hidden;
+}
