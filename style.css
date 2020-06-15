@@ -64,9 +64,6 @@ a:hover {
 /***********
 メイン
 ************/
-main {
-    margin: 0 0 80px 0;
-}
 
 @media screen and (min-width: 561px){
 .all{
@@ -139,6 +136,7 @@ input[type="submit"] {
     margin: 15px 0 0 0;
     color: #fff;
     border-radius: 5px;
+    border: none;
 }
 input[type="submit"]:hover {
     cursor: pointer;
@@ -162,7 +160,7 @@ input[type="text"].input-error {
     font-size: 14px;
     margin: -15px 0 20px 0;
     color: #e4007f;
-    display: none;
+
 }
 select {
     background-color: #f4f4f4;
@@ -187,7 +185,7 @@ login.html
 =========================================*/
 .login-no-account {
     text-align: center;
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
     border-bottom: 1px solid #eeeeee;
 }
 .login-no-account a {
@@ -274,7 +272,6 @@ transactionReg.html
 }
 .regItemTitle {
     margin: 0 0 10px 0;	
-	position: relative;
 	top: 80px;
 }	
 .regItemcome {
@@ -538,9 +535,10 @@ itemRegDetail.html
 msg.html
 ***********/
 .top__btn__Area {
-    width: 95%;
+    width: 100%;
     margin: 0 auto;
     overflow: hidden;
+    padding: 15px;
 }
 .top__btn__Area .backbtn-Area {
     margin: 15px 0;
@@ -836,6 +834,19 @@ itemlist.html
 .listpage-title h1 {
 	display: inline;
 }
+.serch-result__Area {
+    width: 320px;
+    margin: 0 auto;
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+    justify-content: flex-end;
+}
+.serch-bar {
+    display: flex;
+    align-items: center;
+    margin: 0 15px 0 0;
+}
 .listpage-title .home{
 	float: right;
 	margin-right: 10px;
@@ -888,9 +899,12 @@ itemlist.html
 }
 .botan .serch {
     background-color: #0068b7;
-    padding: 10px 10% 10px 10%;
+	padding: 10px 10% 10px 10%;
     color: #fff;
     border-radius: 5px;
+    border: none;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 16px;
 }
 }
 @media screen and (min-width: 561px){
@@ -902,8 +916,7 @@ itemlist.html
 	display: inline;
 }
 .serch-result__Area {
-    padding: 0 15px 0 15px;
-    width: 95%;
+    width: 644px;
     margin: 0 auto;
     display: flex;
     justify-content: flex-end;
@@ -911,6 +924,7 @@ itemlist.html
 .serch-bar {
     display: flex;
     align-items: center;
+    margin: 0 15px 0 0;
 }
 .listpage-title h1 {
 	display: inline;
@@ -972,9 +986,12 @@ itemlist.html
 }
 .botan .serch {
     background-color: #0068b7;
-    padding: 10px 10% 10px 10%;
+	padding: 10px 10% 10px 10%;
     color: #fff;
     border-radius: 5px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    border: none;
+    font-size: 16px;
 }
 }
 
@@ -1028,9 +1045,7 @@ mypage.html
     color:#fff;
 }
 .archive{
-	float: right;
-    padding: 5px 15px;
-	display: inline-block;
+	text-align: right;
 }
 }
 @media screen and (min-width: 561px){
@@ -1079,9 +1094,7 @@ mypage.html
     color:#fff;
 }
 .archive{
-	float: right;
-    padding: 5px 15px;
-	display: inline-block;
+	text-align: right;
 }
 .status>a {
     text-decoration: underline;
@@ -1091,34 +1104,15 @@ mypage.html
 editmypage.html
 =========================================*/
 @media screen and (max-width: 560px){
-.editcomplete{
+input[type="submit"].editcomplete{
 	float: right;
     margin: 15px 0;
     font-size: 18px;
     padding: 5px 15px;
     border: none;
-	color: #FF0000;
-}
-
-.myComment textarea {
-    width: 100%;
-    height: 100px;
-    background-color: #f4f4f4;
-    border: none;
-    padding: 10px;
-    font-size: 14px;
-    color: #444;
-    border: 1px solid #e7e7e7;
-}
-}
-@media screen and (min-width: 561px){
-.editcomplete{
-	float: right;
-    margin: 15px 0;
-    font-size: 18px;
-    padding: 5px 15px;
-    border: none;
-	color: #FF0000;
+    color: #FF0000;
+    background-color: transparent;
+    width: auto;
 }
 .user__name.edit {
     text-align: left;
@@ -1136,7 +1130,61 @@ editmypage.html
     background-color: #f4f4f4;
     border: none;
     padding: 10px;
-    font-size: 14px;
+    font-size: 16px;
+    color: #444;
+    border: 1px solid #e7e7e7;
+}
+#selIcon { 
+    display: none;
+}
+.editImg {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fa-camera {
+    position: absolute;
+    color: #fff;
+    z-index: 2;
+    opacity: 0.7;
+}
+.editbtn {
+    font-size: 16px;
+    padding: 5px;
+    background-color: rgba(250, 250, 250, 0.5);
+    border: none;
+    border-radius: 3px;
+}
+}
+@media screen and (min-width: 561px){
+input[type="submit"].editcomplete{
+    float: right;
+    margin: 15px 0;
+    font-size: 18px;
+    padding: 5px 15px;
+    border: none;
+    color: #FF0000;
+    background-color: transparent;
+    width: auto;
+}
+.user__name.edit {
+    text-align: left;
+    border: none;
+    margin: 0;
+    font-size: 16px;
+    color: #444;
+}
+.editImg img {
+    filter: brightness(70%);
+}
+.myComment textarea {
+    width: 100%;
+    height: 100px;
+    background-color: #f4f4f4;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
     color: #444;
     border: 1px solid #e7e7e7;
 }
@@ -1179,7 +1227,7 @@ archivepage.html
 .archiveArea{
 	width: 540px;
     background-color: #f4f4f4;
-    min-height: 500px;
+    min-height: 400px;
     margin: 0 auto;
     overflow-y: scroll;
 }
@@ -1203,7 +1251,7 @@ archivepage.html
 	float: right;
 	color: #0068b7;
 }
-.selIcon { 
+#selIcon { 
     display: none;
 }
 .editImg {
@@ -1219,7 +1267,6 @@ archivepage.html
     opacity: 0.7;
 }
 .editbtn {
-    margin: 15px;
     font-size: 18px;
     padding: 5px;
     background-color: rgba(250, 250, 250, 0.5);
@@ -1235,7 +1282,4 @@ regComp.html
     width: 95%;
     margin: 0 auto;
     text-align: center;
-}
-.twitter-share-button {
-	
 }
