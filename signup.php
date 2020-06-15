@@ -113,6 +113,7 @@
         </div>
     </header>
     <main>
+	<div class="all">
         <div class="page-title">
             <h1>新規登録</h1>
         </div>
@@ -131,6 +132,7 @@
             <div class="repass-error-msgArea errorMsgArea"><?php if(!empty($err_msg['repass'])){ echo $err_msg['repass'];} ?></div>
             <input type="submit" value="登録する">
         </form>
+	</div>
     </main>
     <footer id="footer">
         <div class="copyright">

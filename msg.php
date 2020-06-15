@@ -204,6 +204,7 @@ if(!empty($_POST)){
         </div>
     </header>
     <main>
+	<div class="all">
         <div class="top__btn__Area">
             <button class="backbtn-Area btn-left">
                 <a href="mypage.php">マイページに戻る</a>
@@ -321,6 +322,7 @@ if(!empty($_POST)){
                 </div>
             </div>
         </div>
+	</div>
     </main>
     <footer id="footer">
         <div class="copyright">

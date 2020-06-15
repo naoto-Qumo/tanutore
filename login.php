@@ -123,6 +123,7 @@ debug('画面表示処理完了>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.');
         </div>
     </header>
     <main>
+	<div class="all">
         <p id="js-show-msg" style="display:none;" class="msg-slide">
             <?php echo getSessionFlash('success2'); ?>
         </p>
@@ -150,6 +151,7 @@ debug('画面表示処理完了>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.');
             <input type="submit" value="ログインする">
             <a href="passResetSend.php" class="forgot">パスワードを忘れた方はこちら</a>
         </form>
+	</div>
     </main>
     <footer id="footer">
         <div class="copyright">

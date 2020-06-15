@@ -97,6 +97,7 @@ if (!empty($_POST)) {
         </div>
     </header>
     <main>
+	<div class="all">
         <form action="" method="post" enctype="multipart/form-data">
             <button class="backbtn-Area">
                 <a href="mypage.php">キャンセル</a>
@@ -131,6 +132,7 @@ if (!empty($_POST)) {
                 <a href="editPass.php">パスワード変更</a>
             </button>
         </div>
+	</div>
     </main>
     <footer id="footer">
         <div class="copyright">

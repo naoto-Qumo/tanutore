@@ -115,6 +115,7 @@ if(!empty($_POST)){
         </div>
     </header>
     <main>
+	<div class="wide">
         <button class="backbtn-Area">
             <?php if(empty($_SESSION['u_id']) || $viewData['user_id'] !== $_SESSION['u_id']){?>
                 <a href="itemlist.php">一覧に戻る</a>
@@ -169,6 +170,7 @@ if(!empty($_POST)){
                 <?php } ?>
             </div>
         </form>
+	</div>
     </main>
     <footer id="footer">
         <div class="copyright">

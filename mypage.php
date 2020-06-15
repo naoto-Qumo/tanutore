@@ -93,6 +93,7 @@ debug('buyer' . print_r($msgInfo['buyer'], true));
       <?php echo getSessionFlash('success'); ?>
     </p>
     <main>
+	<div class="all">
         <button class="backbtn-Area btn-left">
                 <a href="itemlist.php">一覧に戻る</a>
         </button>
@@ -176,6 +177,7 @@ debug('buyer' . print_r($msgInfo['buyer'], true));
         <div class="archive">
             <a href="archivepage.php">過去取引一覧へ</a>
         </div>
+	</div>
     </main>
     <footer id="footer">
         <div class="copyright">

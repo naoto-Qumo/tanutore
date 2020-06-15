@@ -72,6 +72,7 @@
            </div>
         </header>
         <main>
+	<div class="wide">
             <p id="js-show-msg" style="display:none;" class="msg-slide">
                 <?php echo getSessionFlash('success'); ?>
             </p>
@@ -155,6 +156,9 @@
                 </ul>
             </div>
         </div>
+	</div>
+        </main>
+
 
         <footer id="footer">
            <div class="copyright">
@@ -162,7 +166,6 @@
            </div>
         </footer>
 
-        </main>
         <script
   src="https://code.jquery.com/jquery-3.5.0.min.js"
   integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="

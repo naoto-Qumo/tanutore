@@ -80,6 +80,7 @@ try {
         </div>
     </header>
     <main>
+	<div class="all">
         <button class="backbtn-Area">
             <a href="mypage.php">マイページに戻る</a>
         </button>
@@ -98,6 +99,7 @@ try {
                 <p class="status"><?php echo $val['c_comptime'];?> 完了</p>
             <?php }?>
         </div>
+	</div>
     </main>
     <footer id="footer">
         <div class="copyright">
