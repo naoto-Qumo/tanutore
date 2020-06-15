@@ -185,7 +185,7 @@ debug('buyer' . print_r($msgInfo['buyer'], true));
     </main>
     <footer id="footer">
         <div class="copyright">
-            &#169;? 2020 Qumo.inc
+            &#169; 2020 Qumo.inc
         </div>
     </footer>
 
