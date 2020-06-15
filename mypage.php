@@ -185,7 +185,6 @@ debug('buyer' . print_r($msgInfo['buyer'], true));
 		</div>
             </div>
 
-        </div>
         <div class="archive">
             <a href="archivepage.php">過去取引一覧へ</a>
         </div>
