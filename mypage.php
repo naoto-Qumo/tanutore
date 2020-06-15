@@ -159,7 +159,7 @@ debug('buyer' . print_r($msgInfo['buyer'], true));
                     <p class="itemname">取引中のアイテムはありません。</p>
                 <?php } ?>
 		</div>
-            </div>
+            
 
             <div class="regItemTitle">交渉中一覧</div>
             <div class="itemArea">
