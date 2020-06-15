@@ -110,6 +110,7 @@ if(!empty($_POST)){
         </div>
     </header>
     <main>
+	<div class="all">
         <button class="backbtn-Area btn-left">
                 <a href="editmypage.php">キャンセル</a>
         </button>
@@ -128,6 +129,7 @@ if(!empty($_POST)){
             <div class="repass-error-msgArea errorMsgArea"><?php if(!empty($err_msg['repass'])){ echo $err_msg['repass'];} ?></div>
             <input type="submit" value="変更する">
         </form>
+	</div>
     </main>
     <footer id="footer">
         <div class="copyright">

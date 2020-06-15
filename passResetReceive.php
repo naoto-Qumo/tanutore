@@ -132,6 +132,7 @@ EOT;
     </header>
 
     <main>
+	<div class="all">
         <p id="js-show-msg" style="display:none;" class="msg-slide">
             <?php echo getSessionFlash('success'); ?>
         </p>
@@ -151,7 +152,7 @@ EOT;
             <p class="forgot">再発行メールが届かない場合は再送信してください。</p>
             <a href="passResetSend.php" class="forgot">再送信する</a>
         </form>
-
+	</div>
     </main>
 
     <footer id="footer">

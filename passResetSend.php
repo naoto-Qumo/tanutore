@@ -117,6 +117,7 @@ EOT;
     </header>
 
     <main>
+	<div class="all">
         <div class="page-title">
             <h2>パスワードをお忘れの方</h2>
         </div>
@@ -132,6 +133,7 @@ EOT;
             <p>ご登録されたメールアドレスにパスワード再発行のご案内が配信されます。</p>
             <input type="submit" value="送信する">
         </form>
+	</div>
     </main>
 
     <footer id="footer">

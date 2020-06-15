@@ -135,6 +135,7 @@ debug('buyer' . print_r($msgInfo['buyer'], true));
 
             <div class="regItemTitle">取引中一覧</div>
             <div class="itemArea">
+		<div class="syuppin">
                 <?php if ($livechat['seller']['count(chat_id)'] != 0) { ?>
                     <?php foreach ($user_chat['seller_chat'] as $key => $val) { ?>
                         <?php if (empty($val['c_comptime']) && $val['delflg']==0) { ?>
@@ -151,10 +152,12 @@ debug('buyer' . print_r($msgInfo['buyer'], true));
                 <?php } else { ?>
                     <p class="itemname">取引中のアイテムはありません。</p>
                 <?php } ?>
+		</div>
             </div>
 
             <div class="regItemTitle">交渉中一覧</div>
             <div class="itemArea">
+		<div class="syuppin">
                 <?php if ($livechat['buyer']['count(chat_id)'] != 0) { ?>
                     <?php foreach ($user_chat['buyer_chat'] as $key => $val) { ?>
                         <?php if (empty($val['compflg']) && $val['delflg']==0) { ?>
@@ -171,6 +174,7 @@ debug('buyer' . print_r($msgInfo['buyer'], true));
                 <?php } else { ?>
                     <p class="itemname">取引中のアイテムはありません。</p>
                 <?php } ?>
+		</div>
             </div>
 
         </div>
