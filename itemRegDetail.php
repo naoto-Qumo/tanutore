@@ -90,8 +90,8 @@ if(!empty($_POST)){
     <meta charset="utf-8" name="viewport" content="width=device-width">
     <title>たぬトレ</title>
     <!-- twitterカード-->
-　　　　<meta name="twitter:card" content="summary" />
-    <meta property="og:url" content="http://qumo.php.xdomain.jp/itemRegDetail.php?s_id=<?php echo sanitize($s_id);?>"> 
+    <meta name="twitter:card" content="summary" />
+    <meta property="og:url" content="https://tanutore.qumo-y2.com/itemRegDetail.php?s_id=<?php echo sanitize($s_id);?>">
     <meta property="og:title" content="たぬトレ | あつまれどうぶつの森 アイテム交換" />
     <meta property="og:description" content="あつ森アイテム物々交換募集サービス！">
     <meta property="og:image" content="http://qumo.php.xdomain.jp/img/tanutoreIcon.png" />
@@ -104,7 +104,7 @@ if(!empty($_POST)){
 <body id="signupBackImg">
     <header id="header">
         <div id="top-content">
-            <a href="itemlist.php">
+            <a href="index.php">
                 <div class="top-logo">
                     <img src="img/icon.png" alt="">
                 </div>
@@ -118,7 +118,7 @@ if(!empty($_POST)){
 	<div class="wide">
         <button class="backbtn-Area">
             <?php if(empty($_SESSION['u_id']) || $viewData['user_id'] !== $_SESSION['u_id']){?>
-                <a href="itemlist.php">一覧に戻る</a>
+                <a href="index.php">一覧に戻る</a>
             <?php } else {?>
                 <a href="mypage.php">マイページに戻る</a>
             <?php } ?>
@@ -180,7 +180,6 @@ if(!empty($_POST)){
 
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"
         integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-    <script src="js/Jquery.selmodal.js"></script>
     <script src="js/app.js"></script>
     <script src="js/itemMenu.js"></script>
     <script src="js/jquery.raty.js"></script>
@@ -188,7 +187,7 @@ if(!empty($_POST)){
         $('#star_eval').raty({
             readOnly: true,
             precision: true,
-            score: <?php 
+            score: <?php
             if(isset($user_eval['eval'])){
                echo $user_eval['eval'];
             } else {

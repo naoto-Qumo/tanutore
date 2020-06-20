@@ -79,7 +79,7 @@ debug('buyer' . print_r($msgInfo['buyer'], true));
 <body id="signupBackImg">
     <header id="header">
         <div id="top-content">
-            <a href="itemlist.php">
+            <a href="index.php">
                 <div class="top-logo">
                     <img src="img/icon.png" alt="">
                 </div>
@@ -95,7 +95,7 @@ debug('buyer' . print_r($msgInfo['buyer'], true));
     <main>
 	<div class="all">
         <button class="backbtn-Area btn-left">
-                <a href="itemlist.php">一覧に戻る</a>
+                <a href="index.php">一覧に戻る</a>
         </button>
         <div class="edit">
             <a href="editmypage.php">編集</a>

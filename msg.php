@@ -193,7 +193,7 @@ if(!empty($_POST)){
 <body id="signupBackImg">
     <header id="header">
         <div id="top-content">
-            <a href="itemlist.php">
+            <a href="index.php">
                 <div class="top-logo">
                     <img src="img/icon.png" alt="">
                 </div>

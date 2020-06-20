@@ -91,7 +91,7 @@
                     }?>
                 <?php echo count($tranAll)?>件</p>
                 <button class="editbtn">
-                    <a href="itemlist.php">検索解除</a>
+                    <a href="index.php">検索解除</a>
                 </button>
             </div>
             <form action="" class="form-Area">
@@ -136,7 +136,7 @@
                                             <ul class="subMenu">
                                                 <?php foreach ($itemList['list'] as $key => $item) { ?>
                                                     <?php if ($category['mid_id'] === $item['mid_id']) { ?>
-                                                        <a href="itemlist.php?i_id=<?php echo $item['item_id']; ?>">
+                                                        <a href="index.php?i_id=<?php echo $item['item_id']; ?>">
                                                             <li class="subMenu__item js-item-click" value="<?php echo $item['item_id']; ?>">
                                                                 <?php echo $item['item_name']; ?>
                                                                 <div class="arrow-parts">

@@ -42,7 +42,7 @@ if (!empty($_POST)) {
                 // ランダムキー生成
                 $auth_key = makeRandKey();
 
-                $from = 'info@tanutore.com';
+                $from = 'tanutore@qumo-y2.com';
                 $to = $email;
                 $subject = '【パスワード再発行認証】| たぬトレ';
                 //EOT内の半角空白も全てそのまま半角空白として扱われるのでインデントはしないこと
@@ -51,7 +51,7 @@ if (!empty($_POST)) {
 下記のURLにて認証キーをご入力いただくとパスワードが再発行されます。
 
 パスワード再発行認証キー入力ページ：
-http://localhost:8888/tanutore/passResetReceive.php
+https://tanutore.qumo-y2.com/passResetReceive.php
 
 【認証キー】
 {$auth_key}
@@ -71,6 +71,8 @@ EOT;
 
                 debug('セッションの中身'.print_r($_SESSION,true));
                 header('Location:passResetReceive.php');
+            } else {
+                $err_msg['common'] = 'メールアドレスに誤りがあります。';
             }
         } catch (Exception $e) {
             error_log('エラー発生：'.$e->getMessage());
@@ -105,7 +107,7 @@ EOT;
 <body id="window-width">
     <header id="header">
         <div id="top-content">
-            <a href="">
+            <a href="index.php">
                 <div class="top-logo">
                     <img src="img/icon.png" alt="">
                 </div>

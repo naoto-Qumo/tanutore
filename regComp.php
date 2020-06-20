@@ -19,7 +19,7 @@ if(empty($tranInfo)){
     //header('Location:mypage.php');
 } else {
     debug('シェア情報取得完了');
-    $url = 'http://qumo.php.xdomain.jp/itemRegDetail.php?s_id='.sanitize($s_id);
+    $url = 'https://tanutore.qumo-y2.com/itemRegDetail.php?s_id='.sanitize($s_id);
 }
 
 ?>
@@ -50,7 +50,7 @@ if(empty($tranInfo)){
 <body id="signupBackImg">
     <header id="header">
         <div id="top-content">
-            <a href="itemlist.php">
+            <a href="index.php">
                 <div class="top-logo">
                     <img src="img/icon.png" alt="">
                 </div>
@@ -62,7 +62,7 @@ if(empty($tranInfo)){
     </header>
     <main>
         <button class="backbtn-Area">
-            <a href="itemlist.php">一覧に戻る</a>
+            <a href="index.php">一覧に戻る</a>
         </button>
         <div class="page-title">
                 <h1>募集登録完了</h1>
@@ -79,8 +79,8 @@ if(empty($tranInfo)){
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-    <script src="js/Jquery.selmodal.js"></script>
     <script src="js/app.js"></script>
     <script src="js/itemMenu.js"></script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </body>
 </html>

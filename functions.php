@@ -193,8 +193,8 @@ function validPass($str, $key){
 function dbConnect()
 {
   // DBへの接続準備
-  $dsn = 'mysql:dbname=qumo_tanutore;host=mysql1.php.xdomain.ne.jp;charset=utf8';
-  $user = 'qumo_tanutore';
+  $dsn = 'mysql:dbname=xs094943_tanutore;host=mysql10044.xserver.jp;charset=utf8';
+  $user = 'xs094943_qumo';
   $password = 'tqaunmuotore';
   $options = array(
     // SQL実行失敗時にはエラ&#12316;コードのみ設定
@@ -597,10 +597,10 @@ function getSessionFlash($key){
 
 // ランダムキー生成
 function makeRandKey($length = 8){
-  static $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJLKMNOPQRSTUVWXYZ0123456789';
+  static $chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
   $str = '';
   for ($i = 0; $i < $length; ++$i) {
-      $str .= $chars[mt_rand(0, 61)];
+      $str .= $chars[mt_rand(0, 35)];
   }
   return $str;
 }

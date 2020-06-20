@@ -1045,9 +1045,7 @@ mypage.html
     color:#fff;
 }
 .archive{
-	float: right;
-	margin-bottom: 80px;
-	display: inline-block;
+	text-align: right;
 }
 }
 @media screen and (min-width: 561px){
@@ -1096,9 +1094,7 @@ mypage.html
     color:#fff;
 }
 .archive{
-	float: right;
-	margin-bottom: 80px;
-	display: inline-block;
+	text-align: right;
 }
 .status>a {
     text-decoration: underline;
@@ -1231,7 +1227,7 @@ archivepage.html
 .archiveArea{
 	width: 540px;
     background-color: #f4f4f4;
-    min-height: 500px;
+    min-height: 400px;
     margin: 0 auto;
     overflow-y: scroll;
 }

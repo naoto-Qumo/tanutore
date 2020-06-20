@@ -65,7 +65,7 @@
                             $_SESSION['u_id'] = $dbh->lastInsertId();
                             debug('セッション変数の中身：'.print_r($_SESSION,true));
 
-                            header('Location:itemlist.php');
+                            header('Location:index.php');
                         }
                     } catch (Exception $e) {
                         error_log('エラー発生：'.$e->getMessage());

@@ -86,7 +86,7 @@ if (!empty($_POST)) {
 <body id="signupBackImg">
     <header id="header">
         <div id="top-content">
-            <a href="itemlist.php">
+            <a href="index.php">
                 <div class="top-logo">
                     <img src="img/icon.png" alt="">
                 </div>
@@ -141,7 +141,6 @@ if (!empty($_POST)) {
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-    <script src="js/Jquery.selmodal.js"></script>
     <script src="js/app.js"></script>
     <script src="js/itemMenu.js"></script>
 </body>

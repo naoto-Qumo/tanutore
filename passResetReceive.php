@@ -54,7 +54,7 @@ if(!empty($_POST)){
                     if($stmt){
                         debug('クエリ成功');
                         // メールを送信
-                        $from = 'info@tanutore.com';
+                        $from = 'tanutore@qumo-y2.com';
                         $to = $_SESSION['auth_email'];
                         $subject = '【パスワード再発行完了】｜たぬトレ';
                                         //EOT内の半角空白も全てそのまま半角空白として扱われるのでインデントはしないこと
@@ -63,7 +63,7 @@ if(!empty($_POST)){
 下記のURLにて再発行パスワードをご入力いただき、ログインください。
 
 ログインページ：
-http://localhost:8888/tanutore/login.php
+https://tanutore.qumo-y2.com/login.php
 
 【再発行パスワード】
 {$pass}
@@ -120,7 +120,7 @@ EOT;
 <body id="window-width">
     <header id="header">
         <div id="top-content">
-            <a href="">
+            <a href="index.php">
                 <div class="top-logo">
                     <img src="img/icon.png" alt="">
                 </div>

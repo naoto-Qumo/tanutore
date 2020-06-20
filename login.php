@@ -70,7 +70,7 @@ if(!empty($_POST)){
                 // ユーザID取得
                 $_SESSION['u_id'] = $result['user_id'];
                 debug('セッション変数の中身'.print_r($_SESSION,true));
-                header('Location:itemlist.php');
+                header('Location:index.php');
             } else {
                 debug('パスワードが不一致です。');
                 $err_msg['common'] = MSG09;

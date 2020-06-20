@@ -139,7 +139,7 @@ debug('画面表示処理終了>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
 <body id="signupBackImg">
     <header id="header">
         <div id="top-content">
-            <a href="itemlist.php">
+            <a href="index.php">
                 <div class="top-logo">
                     <img src="img/icon.png" alt="">
                 </div>
@@ -151,7 +151,7 @@ debug('画面表示処理終了>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
     </header>
     <main>
         <button class="backbtn-Area">
-            <a href="itemlist.php">一覧に戻る</a>
+            <a href="index.php">一覧に戻る</a>
         </button>
         
         <div class="page-title">
@@ -250,7 +250,6 @@ debug('画面表示処理終了>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-    <script src="js/Jquery.selmodal.js"></script>
     <script src="js/app.js"></script>
     <script src="js/itemMenu.js"></script>
 </body>
