@@ -115,7 +115,7 @@ if(!empty($_POST)){
         </div>
     </header>
     <main>
-	<div class="wide">
+	<div class="all">
         <button class="backbtn-Area">
             <?php if(empty($_SESSION['u_id']) || $viewData['user_id'] !== $_SESSION['u_id']){?>
                 <a href="index.php">一覧に戻る</a>
