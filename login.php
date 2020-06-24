@@ -8,6 +8,7 @@ debugLogStart();
 
 debug('セッション変数：'.print_r($_SESSION,true));
 
+require('auth.php');
 
 if(!empty($_POST)){
     //フォーム情報変数格納
@@ -155,7 +156,7 @@ debug('画面表示処理完了>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.');
     </main>
     <footer id="footer">
         <div class="copyright">
-            &#169;? 2020 Qumo.inc
+            &copy; 2020 Qumo
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"

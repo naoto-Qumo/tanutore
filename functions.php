@@ -53,7 +53,7 @@ function debugLogStart()
 // ================================
 define('MSG01', '入力必須です。');
 define('MSG02', 'メールアドレスの形式で入力してください。');
-define('MSG03', '英数字で入力してください');
+define('MSG03', '半角英数字のみご利用いただけます。また半角英数字と数字を1文字以上含めてください。');
 define('MSG04', '255文字以内で入力してください。');
 define('MSG05', '7文字以上で入力してください。');
 define('MSG06', 'パスワード(再入力)が一致しません。');
@@ -128,7 +128,7 @@ function validEmailDup($email)
 // 英数字チェック
 function validCharNum($str, $key)
 {
-  if (!preg_match('/^[a-zA-Z]+[0-9]+$/', $str)) {
+  if (!preg_match('/^(?=.*?[a-z])(?=.*?\d)[a-zA-Z\d]+/i', $str)) {
     global $err_msg;
     $err_msg[$key] = MSG03;
   }
@@ -142,11 +142,11 @@ function validMaxLen($str, $key, $MAX_LEN = 255)
   }
 }
 // 最小文字数チェック
-function validMinLen($str, $key, $MIN_LEN = 7)
+function validMinLen($str, $key, $MIN_LEN = 8)
 {
   if (mb_strlen($str) < $MIN_LEN) {
     global $err_msg;
-    $err_msg['pass'] = MSG05;
+    $err_msg[$key] = MSG05;
   }
 }
 // 同値チェック

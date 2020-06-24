@@ -245,7 +245,7 @@ debug('画面表示処理終了>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
     </main>
     <footer id="footer">
         <div class="copyright">
-            &#169;&#65039; 2020 Qumo.inc
+            &copy; 2020 Qumo
         </div>
     </footer>
 

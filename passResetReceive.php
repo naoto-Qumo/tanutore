@@ -71,14 +71,14 @@ https://tanutore.qumo-y2.com/login.php
 
 *****************************
 たぬトレカスタマーセンター
-Twitter https://twitter.com/tanutore
+Twitter https://twitter.com/tanutore1
 *****************************
 EOT;
                         sendMail($from, $to, $subject, $comment);
 
                         // セッション削除
                         session_unset();
-                        $_SESSION['success2'] = SUC05;
+                        $_SESSION['success2'] = 'パスワード再発行メールを送信しました';
                         debug('あああセッション変数の中身'.print_r($_SESSION, true));
                         header('Location:login.php');
 
@@ -157,7 +157,7 @@ EOT;
 
     <footer id="footer">
         <div class="copyright">
-            &#169;? 2020 Qumo.inc
+            &copy; 2020 Qumo
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"

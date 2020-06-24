@@ -577,6 +577,7 @@ msg.html
 .userIcon img {
     width: 100%;
     border-radius: 50%;
+    object-fit: cover;
 }
 .userInfo {
     float: left;

@@ -62,6 +62,12 @@ try {
     <title>たぬトレ</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+
+<!-- ファビコン -->
+<link rel="icon" href="img/icon.png"> 
+<!-- スマホ用アイコン -->
+<link rel="apple-touch-icon" sizes="180x180" href="img/icon.png">
+
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d5e07a31ed.js" crossorigin="anonymous"></script>
 </head>
@@ -103,7 +109,7 @@ try {
     </main>
     <footer id="footer">
         <div class="copyright">
-            &#169;? 2020 Qumo.inc
+            &copy; 2020 Qumo
         </div>
     </footer>
 

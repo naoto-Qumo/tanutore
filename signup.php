@@ -28,12 +28,17 @@
             // メールアドレス最大文字数チェック
             validMaxLen($email,'email');
 
+            // ニックネーム最大文字数チェック
+            validMaxLen($name,'name');
+
             // パスワード英数字チェック
             validCharNum($pass, 'pass');
             // パスワード最大文字数チェック
-            validMaxLen($pass, 'psss');
+            validMaxLen($pass, 'pass');
             // パスワード最小文字数チェック
             validMinLen($pass, 'pass');
+            
+
 
             // 再入力パスワード最大文字数チェック
             validMaxLen($repass, 'repass');
@@ -124,8 +129,8 @@
             ニックネーム
             <input class="js-name-check" type="text" placeholder="例)たぬ子" name="name" value="<?php if(!empty($_POST['name'])){ echo $_POST['name'];}?>">
             <div class="name-error-msgArea errorMsgArea"><?php if(!empty($err_msg['name'])){ echo $err_msg['name'];} ?></div>
-            パスワード
-            <input class="js-pass-check js-pass-validate" type="password" placeholder="7文字以上の英数字" name="pass" value="<?php if(!empty($_POST['pass'])){ echo $_POST['pass'];}?>">
+            パスワード(半角英字と数字を1つ以上含む8文字以上)
+            <input class="js-pass-check js-pass-validate" type="password" placeholder="8文字以上の英数字" name="pass" value="<?php if(!empty($_POST['pass'])){ echo $_POST['pass'];}?>">
             <div class="pass-error-msgArea errorMsgArea"><?php if(!empty($err_msg['pass'])){ echo $err_msg['pass'];} ?></div>
             パスワード(再入力)
             <input class="js-repass-check js-repass-validate" type="password" placeholder="パスワード確認" name="repass" value="<?php if(!empty($_POST['repass'])){ echo $_POST['repass'];}?>">
@@ -136,7 +141,7 @@
     </main>
     <footer id="footer">
         <div class="copyright">
-            &#169;? 2020 Qumo.inc
+            &copy; 2020 Qumo
         </div>
     </footer>
 

@@ -44,9 +44,10 @@ if (!empty($_POST)) {
 
                 $from = 'tanutore@qumo-y2.com';
                 $to = $email;
-                $subject = '【パスワード再発行認証】| たぬトレ';
+                $subject = '【パスワード再発行】| たぬトレ';
                 //EOT内の半角空白も全てそのまま半角空白として扱われるのでインデントはしないこと
                 $comment = <<<EOT
+
 本メールアドレス宛にパスワード再発行のご依頼がありました。
 下記のURLにて認証キーをご入力いただくとパスワードが再発行されます。
 
@@ -59,7 +60,7 @@ https://tanutore.qumo-y2.com/passResetReceive.php
 
 *****************************
 たぬトレカスタマーセンター
-Twitter https://twitter.com/tanutore
+Twitter https://twitter.com/tanutore1
 *****************************
 EOT;
                 sendMail($from, $to, $subject, $comment);
@@ -140,7 +141,7 @@ EOT;
 
     <footer id="footer">
         <div class="copyright">
-            &#169;? 2020 Qumo.inc
+            &copy; 2020 Qumo
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>

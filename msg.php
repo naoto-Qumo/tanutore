@@ -326,7 +326,7 @@ if(!empty($_POST)){
     </main>
     <footer id="footer">
         <div class="copyright">
-            &#169;&#65039; 2020 Qumo.inc
+            &copy; 2020 Qumo
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"

@@ -171,7 +171,7 @@ debug('buyer' . print_r($msgInfo['buyer'], true));
                             <p class="itemname"><?php echo $val['ex_item_name']; ?></p>
                             <p class="status">
                                 <?php if(empty($val['buyer_eval'])){?>
-                                    <a href="msg.php<?php echo '?c_id=' . $val['chat_id']; ?>">取引中</a>
+                                    <a href="msg.php<?php echo '?c_id=' . $val['chat_id']; ?>">交渉中</a>
                                 <?php }else{?>
                                     <a href="msg.php<?php echo '?c_id=' . $val['chat_id']; ?>">あなたの評価待ち</a>
                                 <?php }?>
@@ -192,7 +192,7 @@ debug('buyer' . print_r($msgInfo['buyer'], true));
     </main>
     <footer id="footer">
         <div class="copyright">
-            &#169; 2020 Qumo.inc
+            &copy; 2020 Qumo
         </div>
     </footer>
 

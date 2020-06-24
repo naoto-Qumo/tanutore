@@ -136,7 +136,7 @@ if (!empty($_POST)) {
     </main>
     <footer id="footer">
         <div class="copyright">
-            &#169;&#65039; 2020 Qumo.inc
+            &copy; 2020 Qumo
         </div>
     </footer>
 
