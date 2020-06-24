@@ -621,6 +621,21 @@ msg.html
     overflow-y: scroll;
     box-sizing: border-box;
 }
+/*ユーザ評価モーダル*/
+.eval__modal {
+    width: 100%;
+    position: absolute;
+    top: 20%;
+    display: none;
+}
+.eval__modal__wrap {
+    width: 95%;
+    margin: 0 auto;
+    background-color: #eee9e6;
+    padding: 5px;
+    border-radius: 3px;
+    position: relative;
+}
 }
 @media screen and (min-width: 561px){
 .msg__Area {
@@ -633,6 +648,20 @@ msg.html
     padding: 15px;
     overflow-y: scroll;
     box-sizing: border-box;
+}
+.eval__modal {
+    width: 600px;
+    position: absolute;
+    top: 20%;
+    display: none;
+}
+.eval__modal__wrap {
+    width: 600px;
+    margin: 0 auto;
+    background-color: #eee9e6;
+    padding: 5px;
+    border-radius: 3px;
+    position: relative;
 }
 }
 .msg__contents {
@@ -767,21 +796,7 @@ msg.html
     right: 0;
     bottom: 0;
 }
-/*ユーザ評価モーダル*/
-.eval__modal {
-    width: 100%;
-    position: absolute;
-    top: 30%;
-    display: none;
-}
-.eval__modal__wrap {
-    width: 95%;
-    margin: 0 auto;
-    background-color: #eee9e6;
-    padding: 5px;
-    border-radius: 3px;
-    position: relative;
-}
+
 .modalTitle {
     text-align: center;
 }
